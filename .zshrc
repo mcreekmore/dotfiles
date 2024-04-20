@@ -99,3 +99,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# golang
+if [[ ":$PATH:" != *":/usr/local/go/bin:"* ]]; then
+    export PATH=$PATH:/usr/local/go/bin
+fi
