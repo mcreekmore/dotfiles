@@ -216,6 +216,7 @@ require("lazy").setup({
 				["<leader>t"] = { name = "[T]oggle", _ = "which_key_ignore" },
 				["<leader>h"] = { name = "Git [H]unk", _ = "which_key_ignore" },
 				["<leader>g"] = { name = "[G]it", _ = "which_key_ignore" },
+				["<leader>u"] = { name = "[U]ndotree", _ = "which_key_ignore" },
 			})
 			-- visual mode
 			require("which-key").register({
