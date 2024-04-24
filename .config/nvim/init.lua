@@ -225,6 +225,13 @@ require("lazy").setup({
 	},
 
 	{
+		"mbbill/undotree",
+		init = function()
+			vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+		end,
+	},
+
+	{
 		"theprimeagen/harpoon",
 		branch = "harpoon2",
 		dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
