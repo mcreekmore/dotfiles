@@ -179,6 +179,9 @@ require("lazy").setup({
 				changedelete = { text = "~" },
 			},
 		},
+
+		vim.keymap.set("n", "<leader>gh", ":Gitsigns preview_hunk<CR>", {}),
+		vim.keymap.set("n", "<leader>gi", ":Gitsigns preview_hunk_inline<CR>", {}),
 	},
 
 	-- NOTE: Plugins can also be configured to run Lua code when they are loaded.
@@ -211,6 +214,7 @@ require("lazy").setup({
 				["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
 				["<leader>t"] = { name = "[T]oggle", _ = "which_key_ignore" },
 				["<leader>h"] = { name = "Git [H]unk", _ = "which_key_ignore" },
+				["<leader>g"] = { name = "[G]it", _ = "which_key_ignore" },
 			})
 			-- visual mode
 			require("which-key").register({
