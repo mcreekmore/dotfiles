@@ -22,3 +22,5 @@ _darcs
 
 # tmux plugins
 \.config\tmux\plugins
+
+^/scripts

@@ -119,3 +119,6 @@ case ":$PATH:" in
 esac
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="$HOME/dotfiles/scripts:$PATH"
+alias tms="$HOME/dotfiles/scripts/tmux-sessionizer.sh"
