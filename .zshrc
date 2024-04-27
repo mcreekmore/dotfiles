@@ -122,3 +122,4 @@ esac
 
 export PATH="$HOME/.dotfiles/scripts:$PATH"
 alias tms="$HOME/.dotfiles/scripts/tmux-sessionizer.sh"
+alias c="clear"
