@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-if [ ! -d "$1" ]; then
+if [ $# -eq 0 ]
+  then
     echo "Error: Must pass soundcloud url."
     exit 1
 fi
