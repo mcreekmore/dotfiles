@@ -122,4 +122,5 @@ esac
 
 export PATH="$HOME/.dotfiles/scripts:$PATH"
 alias tms="$HOME/.dotfiles/scripts/tmux-sessionizer.sh"
+alias dlsc="$HOME/.dotfiles/scripts/download-soundcloud.sh"
 alias c="clear"
