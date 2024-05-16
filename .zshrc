@@ -126,3 +126,6 @@ alias dlsc="$HOME/.dotfiles/scripts/download-soundcloud.sh"
 alias c="clear"
 
 export PATH=$PATH:$(go env GOPATH)/bin
+
+# shell integration
+eval "$(fzf --zsh)"
