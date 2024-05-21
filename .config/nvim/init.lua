@@ -256,6 +256,19 @@ require("lazy").setup({
 	},
 
 	{
+		"stevearc/oil.nvim",
+		opts = {},
+		config = function()
+			require("oil").setup({
+				view_options = {
+					show_hidden = true,
+				},
+			})
+			vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+		end,
+	},
+
+	{
 		"theprimeagen/harpoon",
 		branch = "harpoon2",
 		dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
@@ -371,6 +384,18 @@ require("lazy").setup({
 
 			-- Useful for getting pretty icons, but requires a Nerd Font.
 			{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
+
+			-- Syncs dev icon colors with theme
+			{
+				"rachartier/tiny-devicons-auto-colors.nvim",
+				dependencies = {
+					"nvim-tree/nvim-web-devicons",
+				},
+				event = "VeryLazy",
+				config = function()
+					require("tiny-devicons-auto-colors").setup()
+				end,
+			},
 		},
 		config = function()
 			-- Telescope is a fuzzy finder that comes with a lot of different things that
