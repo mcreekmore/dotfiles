@@ -35,6 +35,7 @@ Setup
 ```bash
 git clone git@github.com:mcreekmore/.dotfiles.git
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 cd .dotfiles
 stow .
 ```
