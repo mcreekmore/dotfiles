@@ -1,6 +1,7 @@
 local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
+local launch_menu = {}
 
 config.color_scheme = "Catppuccin Mocha"
 config.font = wezterm.font("Hack Nerd Font Mono")
@@ -30,6 +31,11 @@ config.wsl_domains = {
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	config.default_domain = "WSL:Ubuntu"
 	config.font_size = 12
+
+	table.insert(launch_menu, {
+		label = "PowerShell",
+		args = { "powershell.exe", "-NoLogo" },
+	})
 end
 
 return config
