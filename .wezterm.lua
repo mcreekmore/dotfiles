@@ -6,6 +6,9 @@ config.color_scheme = "Catppuccin Mocha"
 config.font = wezterm.font("Hack Nerd Font Mono")
 config.font_size = 18
 config.hide_tab_bar_if_only_one_tab = true
+config.scrollback_lines = 10000
+config.use_fancy_tab_bar = false
+config.window_close_confirmation = "NeverPrompt"
 
 config.ssh_domains = {
 	{
