@@ -26,7 +26,7 @@ config.wsl_domains = {
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	config.default_domain = "WSL:Ubuntu"
-	config.font_size = 18
+	config.font_size = 12
 end
 
 return config
