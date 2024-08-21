@@ -8,7 +8,7 @@ $local_packages = @(
     "firefox"
     "gimp"
     "googlechrome"
-    "okibcn_ScoopMaster/googledrive-np_(1)"
+    "anderlli0053_DEV-tools/googledrive-np"
     "nerd-fonts/Hack-NF-Mono"
     "hwmonitor"
     "keepassxc"
@@ -65,10 +65,11 @@ scoop install git
 
 # add scoop buckets
 scoop bucket add extras
-scoop bucket add okibcn_ScoopMaster https://github.com/okibcn/ScoopMaster
 scoop bucket add nerd-fonts
 scoop bucket add nonportable
 scoop bucket add versions
+scoop bucket add anderlli0053_DEV-tools https://github.com/anderlli0053/DEV-tools
+scoop bucket add okibcn_ScoopMaster https://github.com/okibcn/ScoopMaster
 
 # install packages using scoop
 scoop install $local_packages
