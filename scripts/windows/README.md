@@ -10,5 +10,6 @@ Set-ExecutionPolicy unrestricted
 
 ### Manually install
 
-- [MSI Afterburner](https://www.msi.com/Landing/afterburner/graphics-cards)
 - [Geforce Experience](https://www.nvidia.com/en-us/geforce/geforce-experience/download/)
+- [MSI Afterburner](https://www.msi.com/Landing/afterburner/graphics-cards)
+- [Mullvad VPN](https://mullvad.net/en/download/vpn/windows)
