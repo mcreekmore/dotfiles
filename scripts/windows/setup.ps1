@@ -48,7 +48,7 @@ scoop install hwmonitor
 scoop install keepassxc
 scoop install nonportable/mullvadvpn-np
 scoop install okibcn_ScoopMaster/msi-afterburner
-scoop install anderlli0053_DEV-tools/nvidia-geforce-experience
+scoop install anderlli0053_DEV-tools/nvidia-geforce-experience-np
 scoop install obsidian
 scoop install nonportable/parsec-np --skip-hash-check
 scoop install playnite
