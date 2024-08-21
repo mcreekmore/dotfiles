@@ -2,7 +2,7 @@
 
 ### Configure powershell scripts
 
-```ps
+```powershell
 # in admin powershell
 Set-ExecutionPolicy unrestricted
 ./setup.ps1
