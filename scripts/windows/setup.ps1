@@ -5,6 +5,47 @@
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
 # install packages
+$choco_packages = @(
+    '7zip'
+    "audacity"
+    "autohotkey"
+    "bitwarden"
+    "chrome-remote-desktop-host"
+    "citrix-workspace"
+    "discord"
+    "element-desktop"
+    "firefox"
+    "gimp"
+    "googlechrome"
+    "googledrive"
+    "hwmonitor"
+    "keepassxc"
+    "mullvad-app"
+    "msiafterburner"
+    "geforce-experience"
+    "obsidian"
+    "parsec"
+    "playnite"
+    "plex"
+    "plexamp"
+    "slack"
+    "soundswitch"
+    "spotify"
+    "signal"
+    "steam"
+    "sudo"
+    "tailscale"
+    "teamviewer"
+    "telegram"
+    "vscode"
+    "wezterm"
+    "microsoft-windows-terminal"
+    "zoom"
+)
+
+choco install -y $choco_packages
+
+# install packages
 choco install -y 7zip
 choco install -y audacity
 choco install -y autohotkey
