@@ -41,7 +41,7 @@ scoop install element
 scoop install firefox
 scoop install gimp
 scoop install googlechrome
-scoop install anderlli0053_DEV-tools/googledrive-np
+scoop install anderlli0053_DEV-tools/googledrive-np --skip-hash-check
 scoop install nerd-fonts/Hack-NF-Mono
 scoop install hwmonitor
 scoop install keepassxc
