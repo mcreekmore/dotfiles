@@ -46,6 +46,7 @@ $local_packages = @(
 
 # install scoop
 try { iex "& {$(irm get.scoop.sh)} -RunAsAdmin" }
+catch { "Erorr installing scoop. Likely already installed. }
 
 # enable scoop buckets
 scoop install git
