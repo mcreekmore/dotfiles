@@ -4,6 +4,43 @@
 # install chocolatey
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
+# install packages
+choco install -y 7zip
+choco install -y audacity
+choco install -y autohotkey
+choco install -y bitwarden
+choco install -y chrome-remote-desktop-host
+choco install -y citrix-workspace
+choco install -y discord
+choco install -y element-desktop
+choco install -y firefox
+choco install -y gimp
+choco install -y googlechrome
+choco install -y googledrive
+choco install -y hwmonitor
+choco install -y keepassxc
+choco install -y mullvad-app
+choco install -y msiafterburner
+choco install -y geforce-experience
+choco install -y obsidian
+choco install -y parsec
+choco install -y playnite
+choco install -y plex
+choco install -y plexamp
+choco install -y slack
+choco install -y soundswitch
+choco install -y spotify
+choco install -y signal
+choco install -y steam
+choco install -y sudo
+choco install -y tailscale
+choco install -y teamviewer
+choco install -y telegram
+choco install -y vscode
+choco install -y wezterm
+choco install -y microsoft-windows-terminal
+choco install -y zoom
+
 # install scoop
 if (Get-Command scoop -ErrorAction SilentlyContinue) {
     Write-Host "Scoop is already installed. Skipping installation."
@@ -26,48 +63,11 @@ scoop install git
 # add scoop buckets
 scoop bucket add extras
 scoop bucket add nerd-fonts
-scoop bucket add nonportable
-scoop bucket add versions
 scoop bucket add anderlli0053_DEV-tools https://github.com/anderlli0053/DEV-tools
-scoop bucket add okibcn_ScoopMaster https://github.com/okibcn/ScoopMaster
 
-# install packages
-scoop install 7zip
-scoop install audacity
-scoop install autohotkey
-scoop install bitwarden
-choco install citrix-workspace
-scoop install discord
-scoop install element
-scoop install firefox
-scoop install gimp
-scoop install googlechrome
-scoop install anderlli0053_DEV-tools/googledrive-np --skip-hash-check
+# install scoop stuff
 scoop install nerd-fonts/Hack-NF-Mono
-scoop install hwmonitor
-scoop install keepassxc
-scoop install nonportable/mullvadvpn-np
-scoop install okibcn_ScoopMaster/msi-afterburner
-scoop install anderlli0053_DEV-tools/nvidia-geforce-experience-np
-scoop install obsidian
-scoop install nonportable/parsec-np --skip-hash-check
-scoop install playnite
-scoop install anderlli0053_DEV-tools/plexamp
-scoop install plex-desktop
-scoop install slack
-scoop install soundswitch
-scoop install spotify
-scoop install signal
 scoop install anderlli0053_DEV-tools/slippi-launcher
-scoop install steam
-scoop install sudo
-scoop install tailscale
-scoop install teamviewer
-scoop install telegram
-scoop install vscode
-scoop install wezterm
-scoop install windows-terminal
-scoop install zoom
 
 # install contexts to registry
-& $env:SCOOP\apps\7zip\current\install-context.reg
+# & $env:SCOOP\apps\7zip\current\install-context.reg
