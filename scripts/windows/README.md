@@ -8,6 +8,11 @@ Set-ExecutionPolicy unrestricted
 ./setup.ps1
 ```
 
+### Wezterm config
+```powershell
+git clone https://github.com/mcreekmore/.dotfiles.git C:\Users\matt\.config\wezterm\
+```
+
 ### Manually install
 
 - [Geforce Experience](https://www.nvidia.com/en-us/geforce/geforce-experience/download/)
