@@ -74,7 +74,7 @@ scoop bucket add nerd-fonts
 scoop bucket add anderlli0053_DEV-tools https://github.com/anderlli0053/DEV-tools
 
 # install scoop stuff
-scoop install extras/rtss
+# scoop install extras/rtss
 scoop install nerd-fonts/Hack-NF-Mono
 scoop install anderlli0053_DEV-tools/slippi-launcher
 
