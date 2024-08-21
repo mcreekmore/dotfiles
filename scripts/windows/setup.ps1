@@ -6,7 +6,6 @@ $local_packages = @(
     "discord"
     "element"
     "firefox"
-    "git"
     "gimp"
     "googlechrome"
     "okibcn_ScoopMaster/googledrive-np_(1)"
@@ -47,6 +46,9 @@ $local_packages = @(
 
 # install scoop
 iex "& {$(irm get.scoop.sh)} -RunAsAdmin"
+
+# enable scoop buckets
+scoop install git
 
 # enable multi-connection downloads
 # scoop install aria2
