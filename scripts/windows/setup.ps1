@@ -1,7 +1,3 @@
-
-# $global_packages = @(
-# )
-
 # set scoop env path
 [environment]::setEnvironmentVariable('SCOOP','C:\scoop','User')
 
@@ -66,7 +62,6 @@ scoop install teamviewer
 scoop install telegram
 scoop install vscode
 scoop install wezterm
-scoop install whatsapp
 scoop install windows-terminal
 scoop install zoom
 
