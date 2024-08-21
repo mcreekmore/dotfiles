@@ -12,7 +12,6 @@ $local_packages = @(
     "nerd-fonts/Hack-NF-Mono"
     "hwmonitor"
     "keepassxc"
-    "microsoft-edge"
     "nonportable/mullvadvpn-np"
     "msiafterburner"
     "okibcn_ScoopMaster/nvidia-geforce-experience-np"
