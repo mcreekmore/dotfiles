@@ -49,7 +49,7 @@ scoop install nonportable/mullvadvpn-np
 scoop install msiafterburner
 scoop install okibcn_ScoopMaster/nvidia-geforce-experience-np
 scoop install obsidian
-scoop install nonportable/parsec-np
+scoop install nonportable/parsec-np --skip-hash-check
 scoop install playnite
 scoop install anderlli0053_DEV-tools/plexamp
 scoop install plex-desktop
