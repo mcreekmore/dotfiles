@@ -46,8 +46,7 @@ $local_packages = @(
 [environment]::setEnvironmentVariable('SCOOP','C:\scoop','User')
 
 # install scoop
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+iex "& {$(irm get.scoop.sh)} -RunAsAdmin"
 
 # enable multi-connection downloads
 # scoop install aria2
