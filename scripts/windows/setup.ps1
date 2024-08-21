@@ -1,6 +1,9 @@
 # set scoop env path
 [environment]::setEnvironmentVariable('SCOOP','C:\scoop','User')
 
+# install chocolatey
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
 # install scoop
 if (Get-Command scoop -ErrorAction SilentlyContinue) {
     Write-Host "Scoop is already installed. Skipping installation."
@@ -28,11 +31,12 @@ scoop bucket add versions
 scoop bucket add anderlli0053_DEV-tools https://github.com/anderlli0053/DEV-tools
 scoop bucket add okibcn_ScoopMaster https://github.com/okibcn/ScoopMaster
 
-# install packages using scoop
+# install packages
 scoop install 7zip
 scoop install audacity
 scoop install autohotkey
 scoop install bitwarden
+choco install citrix-workspace
 scoop install discord
 scoop install element
 scoop install firefox
