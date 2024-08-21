@@ -30,6 +30,7 @@ scoop bucket add nerd-fonts
 scoop bucket add nonportable
 scoop bucket add versions
 scoop bucket add anderlli0053_DEV-tools https://github.com/anderlli0053/DEV-tools
+scoop bucket add okibcn_ScoopMaster https://github.com/okibcn/ScoopMaster
 
 # install packages using scoop
 scoop install 7zip
@@ -46,8 +47,8 @@ scoop install nerd-fonts/Hack-NF-Mono
 scoop install hwmonitor
 scoop install keepassxc
 scoop install nonportable/mullvadvpn-np
-scoop install msiafterburner
-scoop install okibcn_ScoopMaster/nvidia-geforce-experience-np
+scoop install okibcn_ScoopMaster/msi-afterburner
+scoop install anderlli0053_DEV-tools/nvidia-geforce-experience
 scoop install obsidian
 scoop install nonportable/parsec-np --skip-hash-check
 scoop install playnite
