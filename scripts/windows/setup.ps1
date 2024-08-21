@@ -1,41 +1,3 @@
-$local_packages = @(
-    "7zip"
-    "audacity"
-    "autohotkey"
-    "bitwarden"
-    "discord"
-    "element"
-    "firefox"
-    "gimp"
-    "googlechrome"
-    # "anderlli0053_DEV-tools/googledrive-np"
-    "nerd-fonts/Hack-NF-Mono"
-    "hwmonitor"
-    "keepassxc"
-    "nonportable/mullvadvpn-np"
-    "msiafterburner"
-    "okibcn_ScoopMaster/nvidia-geforce-experience-np"
-    "obsidian"
-    "nonportable/parsec-np"
-    "playnite"
-    "anderlli0053_DEV-tools/plexamp"
-    "plex-desktop"
-    "slack"
-    "soundswitch"
-    "spotify"
-    "signal"
-    "anderlli0053_DEV-tools/slippi-launcher"
-    "steam"
-    "sudo"
-    "tailscale"
-    "teamviewer"
-    "telegram"
-    "vscode"
-    "wezterm"
-    "whatsapp"
-    "windows-terminal"
-    "zoom"
-)
 
 # $global_packages = @(
 # )
@@ -70,8 +32,42 @@ scoop bucket add versions
 scoop bucket add anderlli0053_DEV-tools https://github.com/anderlli0053/DEV-tools
 
 # install packages using scoop
+scoop install 7zip
+scoop install audacity
+scoop install autohotkey
+scoop install bitwarden
+scoop install discord
+scoop install element
+scoop install firefox
+scoop install gimp
+scoop install googlechrome
 scoop install anderlli0053_DEV-tools/googledrive-np
-scoop install $local_packages
+scoop install nerd-fonts/Hack-NF-Mono
+scoop install hwmonitor
+scoop install keepassxc
+scoop install nonportable/mullvadvpn-np
+scoop install msiafterburner
+scoop install okibcn_ScoopMaster/nvidia-geforce-experience-np
+scoop install obsidian
+scoop install nonportable/parsec-np
+scoop install playnite
+scoop install anderlli0053_DEV-tools/plexamp
+scoop install plex-desktop
+scoop install slack
+scoop install soundswitch
+scoop install spotify
+scoop install signal
+scoop install anderlli0053_DEV-tools/slippi-launcher
+scoop install steam
+scoop install sudo
+scoop install tailscale
+scoop install teamviewer
+scoop install telegram
+scoop install vscode
+scoop install wezterm
+scoop install whatsapp
+scoop install windows-terminal
+scoop install zoom
 
 # install contexts to registry
 & $env:SCOOP\apps\7zip\current\install-context.reg
