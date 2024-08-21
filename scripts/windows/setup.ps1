@@ -45,11 +45,15 @@ $local_packages = @(
 [environment]::setEnvironmentVariable('SCOOP','C:\scoop','User')
 
 # install scoop
-try {
-    iex "& {$(irm get.scoop.sh)} -RunAsAdmin"
-}
-catch {
-    Write-Host "Error installing Scoop. It's likely already installed."
+if (Get-Command scoop -ErrorAction SilentlyContinue) {
+    Write-Host "Scoop is already installed. Skipping installation."
+} else {
+    try {
+        iex "& {$(irm get.scoop.sh)} -RunAsAdmin"
+        Write-Host "Scoop installed successfully."
+    } catch {
+        Write-Host "Error installing Scoop."
+    }
 }
 
 # enable scoop buckets
