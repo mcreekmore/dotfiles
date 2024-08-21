@@ -8,7 +8,7 @@ $local_packages = @(
     "firefox"
     "gimp"
     "googlechrome"
-    "anderlli0053_DEV-tools/googledrive-np"
+    # "anderlli0053_DEV-tools/googledrive-np"
     "nerd-fonts/Hack-NF-Mono"
     "hwmonitor"
     "keepassxc"
@@ -71,6 +71,7 @@ scoop bucket add versions
 scoop bucket add anderlli0053_DEV-tools https://github.com/anderlli0053/DEV-tools
 
 # install packages using scoop
+scoop install anderlli0053_DEV-tools/googledrive-np
 scoop install $local_packages
 
 # install contexts to registry
