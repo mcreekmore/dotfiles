@@ -19,13 +19,13 @@ $local_packages = @(
     "obsidian"
     "nonportable/parsec-np"
     "playnite"
-    "okibcn_ScoopMaster/plexamp_(1)"
+    "anderlli0053_DEV-tools/plexamp"
     "plex-desktop"
     "slack"
     "soundswitch"
     "spotify"
     "signal"
-    "okibcn_ScoopMaster/slippi-launcher_(1)"
+    "anderlli0053_DEV-tools/slippi-launcher"
     "steam"
     "sudo"
     "tailscale"
@@ -69,7 +69,6 @@ scoop bucket add nerd-fonts
 scoop bucket add nonportable
 scoop bucket add versions
 scoop bucket add anderlli0053_DEV-tools https://github.com/anderlli0053/DEV-tools
-scoop bucket add okibcn_ScoopMaster https://github.com/okibcn/ScoopMaster
 
 # install packages using scoop
 scoop install $local_packages
