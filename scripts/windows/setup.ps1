@@ -13,16 +13,19 @@ $choco_packages = @(
     "chrome-remote-desktop-host"
     "citrix-workspace"
     "discord"
+    "docker-desktop"
+    "ea-app"
     "element-desktop"
     "firefox"
     "gimp"
+    "goggalaxy"
     "googlechrome"
     "googledrive"
     "hwmonitor"
     "keepassxc"
+    "malwarebytes"
+    "microsoft-windows-terminal"
     "mullvad-app"
-    "msiafterburner"
-    "geforce-experience"
     "obsidian"
     "parsec"
     "playnite"
@@ -36,51 +39,15 @@ $choco_packages = @(
     "sudo"
     "tailscale"
     "teamviewer"
+    "ubisoft-connect"
     "telegram"
     "vscode"
     "wezterm"
-    "microsoft-windows-terminal"
+    "windirstat"
     "zoom"
 )
 
 choco install -y $choco_packages
-
-# install packages
-choco install -y 7zip
-choco install -y audacity
-choco install -y autohotkey
-choco install -y bitwarden
-choco install -y chrome-remote-desktop-host
-choco install -y citrix-workspace
-choco install -y discord
-choco install -y element-desktop
-choco install -y firefox
-choco install -y gimp
-choco install -y googlechrome
-choco install -y googledrive
-choco install -y hwmonitor
-choco install -y keepassxc
-choco install -y mullvad-app
-choco install -y msiafterburner
-choco install -y geforce-experience
-choco install -y obsidian
-choco install -y parsec
-choco install -y playnite
-choco install -y plex
-choco install -y plexamp
-choco install -y slack
-choco install -y soundswitch
-choco install -y spotify
-choco install -y signal
-choco install -y steam
-choco install -y sudo
-choco install -y tailscale
-choco install -y teamviewer
-choco install -y telegram
-choco install -y vscode
-choco install -y wezterm
-choco install -y microsoft-windows-terminal
-choco install -y zoom
 
 # install scoop
 if (Get-Command scoop -ErrorAction SilentlyContinue) {
@@ -107,6 +74,7 @@ scoop bucket add nerd-fonts
 scoop bucket add anderlli0053_DEV-tools https://github.com/anderlli0053/DEV-tools
 
 # install scoop stuff
+scoop install extras/rtss
 scoop install nerd-fonts/Hack-NF-Mono
 scoop install anderlli0053_DEV-tools/slippi-launcher
 
