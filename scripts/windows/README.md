@@ -40,7 +40,7 @@ Then terminate wsl
 ## Wezterm config
 
 ```powershell
-git clone https://github.com/mcreekmore/.dotfiles.git C:\Users\matt\
+git clone https://github.com/mcreekmore/.dotfiles.git C:\Users\matt\.config\wezterm\
 ```
 
 ## Manually install
