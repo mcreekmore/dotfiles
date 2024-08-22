@@ -4,6 +4,38 @@
 # install chocolatey
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
+# install scoop
+if (Get-Command scoop -ErrorAction SilentlyContinue) {
+    Write-Host "Scoop is already installed. Skipping installation."
+} else {
+    try {
+        iex "& {$(irm get.scoop.sh)} -RunAsAdmin"
+        Write-Host "Scoop installed successfully."
+    } catch {
+        Write-Host "Error installing Scoop."
+    }
+}
+
+# enable scoop buckets
+scoop install git
+
+# enable multi-connection downloads
+# scoop install aria2
+# scoop config aria2-enabled true
+
+# add scoop buckets
+scoop bucket add extras
+scoop bucket add nerd-fonts
+scoop bucket add anderlli0053_DEV-tools https://github.com/anderlli0053/DEV-tools
+
+# install scoop stuff
+# scoop install extras/rtss
+scoop install nerd-fonts/Hack-NF-Mono
+scoop install anderlli0053_DEV-tools/slippi-launcher
+
+# install contexts to registry
+# & $env:SCOOP\apps\7zip\current\install-context.reg
+
 # install packages
 $choco_packages = @(
     '7zip'
@@ -48,35 +80,3 @@ $choco_packages = @(
 )
 
 choco install -y $choco_packages
-
-# install scoop
-if (Get-Command scoop -ErrorAction SilentlyContinue) {
-    Write-Host "Scoop is already installed. Skipping installation."
-} else {
-    try {
-        iex "& {$(irm get.scoop.sh)} -RunAsAdmin"
-        Write-Host "Scoop installed successfully."
-    } catch {
-        Write-Host "Error installing Scoop."
-    }
-}
-
-# enable scoop buckets
-scoop install git
-
-# enable multi-connection downloads
-# scoop install aria2
-# scoop config aria2-enabled true
-
-# add scoop buckets
-scoop bucket add extras
-scoop bucket add nerd-fonts
-scoop bucket add anderlli0053_DEV-tools https://github.com/anderlli0053/DEV-tools
-
-# install scoop stuff
-# scoop install extras/rtss
-scoop install nerd-fonts/Hack-NF-Mono
-scoop install anderlli0053_DEV-tools/slippi-launcher
-
-# install contexts to registry
-# & $env:SCOOP\apps\7zip\current\install-context.reg

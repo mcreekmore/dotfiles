@@ -41,6 +41,8 @@ Then terminate wsl
 
 ```powershell
 git clone https://github.com/mcreekmore/.dotfiles.git C:\Users\matt\.config\wezterm\
+cd C:\Users\matt\.config\wezterm\
+mklink .\wezterm.lua .config\wezterm\wezterm.lua
 ```
 
 ## Manually install
