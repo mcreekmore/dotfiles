@@ -1,6 +1,9 @@
 # set scoop env path
 [environment]::setEnvironmentVariable('SCOOP','C:\scoop','User')
 
+# set timezone
+%windir%\system32\tzutil /s "Eastern Standard Time"
+
 # install chocolatey
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
@@ -43,6 +46,7 @@ $choco_packages = @(
     "bitwarden"
     "chrome-remote-desktop-host"
     "citrix-workspace"
+    "directx"
     "discord"
     "docker-desktop"
     "ea-app"
