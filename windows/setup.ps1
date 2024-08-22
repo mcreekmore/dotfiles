@@ -2,14 +2,14 @@
 [environment]::setEnvironmentVariable('SCOOP','C:\scoop','User')
 
 # install chocolatey
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
 # install scoop
 if (Get-Command scoop -ErrorAction SilentlyContinue) {
     Write-Host "Scoop is already installed. Skipping installation."
 } else {
     try {
-        iex "& {$(irm get.scoop.sh)} -RunAsAdmin"
+        Invoke-Expression "& {$(Invoke-RestMethod get.scoop.sh)} -RunAsAdmin"
         Write-Host "Scoop installed successfully."
     } catch {
         Write-Host "Error installing Scoop."
