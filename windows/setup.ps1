@@ -38,7 +38,6 @@ scoop install anderlli0053_DEV-tools/slippi-launcher
 
 # install packages
 $choco_packages = @(
-    '7zip'
     "audacity"
     "autohotkey"
     "bitwarden"
