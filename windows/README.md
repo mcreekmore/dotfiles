@@ -1,12 +1,19 @@
 # Windows Setup
 
-### Configure powershell scripts
+## Setup
 
 ```powershell
 # in admin powershell
 Set-ExecutionPolicy unrestricted
 ./setup.ps1
 ```
+
+## Manually install
+
+- [Geforce Experience](https://www.nvidia.com/en-us/geforce/geforce-experience/download/)
+- [MSI Afterburner](https://www.msi.com/Landing/afterburner/graphics-cards)
+- [Mullvad VPN](https://mullvad.net/en/download/vpn/windows)
+- [Jagex Launcher](https://www.runescape.com/launcher)
 
 ## wsl
 
@@ -44,9 +51,3 @@ git clone https://github.com/mcreekmore/.dotfiles.git C:\Users\matt\.config\wezt
 cd C:\Users\matt\.config\wezterm\
 mklink .\wezterm.lua .config\wezterm\wezterm.lua
 ```
-
-## Manually install
-
-- [Geforce Experience](https://www.nvidia.com/en-us/geforce/geforce-experience/download/)
-- [MSI Afterburner](https://www.msi.com/Landing/afterburner/graphics-cards)
-- [Mullvad VPN](https://mullvad.net/en/download/vpn/windows)
