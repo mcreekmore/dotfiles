@@ -15,6 +15,12 @@ config = {
 	adjust_window_size_when_changing_font_size = false,
 	enable_tab_bar = true,
 	window_decorations = "RESIZE",
+	window_padding = {
+		left = 6,
+		right = 6,
+		top = 0,
+		bottom = 0,
+	},
 }
 
 config.keys = {
