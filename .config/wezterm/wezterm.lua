@@ -4,13 +4,18 @@ local config = wezterm.config_builder()
 local act = wezterm.action
 local launch_menu = {}
 
-config.color_scheme = "Catppuccin Mocha"
-config.font = wezterm.font("Hack Nerd Font Mono")
-config.font_size = 18
-config.hide_tab_bar_if_only_one_tab = true
-config.scrollback_lines = 10000
-config.use_fancy_tab_bar = false
-config.window_close_confirmation = "NeverPrompt"
+config = {
+	color_scheme = "Catppuccin Mocha",
+	font = wezterm.font("Hack Nerd Font Mono", { weight = "Regular" }),
+	font_size = 18,
+	hide_tab_bar_if_only_one_tab = true,
+	scrollback_lines = 10000,
+	use_fancy_tab_bar = false,
+	window_close_confirmation = "NeverPrompt",
+	adjust_window_size_when_changing_font_size = false,
+	enable_tab_bar = true,
+	window_decorations = "RESIZE",
+}
 
 config.keys = {
 	{ key = "v", mods = "CTRL", action = act.PasteFrom("Clipboard") },
