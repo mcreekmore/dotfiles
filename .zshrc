@@ -48,3 +48,6 @@ export PATH=$PATH:$(go env GOPATH)/bin
 
 # shell integration
 eval "$(fzf --zsh)"
+
+# ls colors
+alias ls="ls --color=auto"
