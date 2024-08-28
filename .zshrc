@@ -1,11 +1,18 @@
 # starship
 eval "$(starship init zsh)"
 
+# autosuggestions
+if [[ $(uname) == "Darwin" ]]; then
+    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+else
+    source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+
 # syntax highlighting
 if [[ $(uname) == "Darwin" ]]; then
     source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 else
-    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 # disable underline
@@ -13,18 +20,10 @@ fi
 ZSH_HIGHLIGHT_STYLES[path]=none
 ZSH_HIGHLIGHT_STYLES[path_prefix]=none
 
-# autosuggestions
-if [[ $(uname) == "Darwin" ]]; then
-    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-else
-    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-fi
-
 # golang
 if [[ ":$PATH:" != *":/usr/local/go/bin:"* ]]; then
     export PATH=$PATH:/usr/local/go/bin
 fi
-
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
