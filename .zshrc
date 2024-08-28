@@ -40,9 +40,9 @@ esac
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH="$HOME/.dotfiles/scripts:$PATH"
-alias tms="$HOME/.dotfiles/scripts/tmux-sessionizer.sh"
-alias dlsc="$HOME/.dotfiles/scripts/download-soundcloud.sh"
+export PATH="$HOME/dotfiles/scripts:$PATH"
+alias tms="$HOME/dotfiles/scripts/tmux-sessionizer.sh"
+alias dlsc="$HOME/dotfiles/scripts/download-soundcloud.sh"
 alias c="clear"
 
 export PATH=$PATH:$(go env GOPATH)/bin
