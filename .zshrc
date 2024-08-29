@@ -51,3 +51,7 @@ eval "$(fzf --zsh)"
 
 # ls colors
 alias ls="ls --color=auto"
+
+# keybinds
+bindkey "^[[1;5C" forward-word # ctrl + right arrow 
+bindkey "^[[1;5D" backward-word # ctrl + left arrow
