@@ -46,6 +46,9 @@ alias c="clear"
 
 export PATH=$PATH:$(go env GOPATH)/bin
 
+# solana
+PATH="/home/matt/.local/share/solana/install/active_release/bin:$PATH"
+
 # shell integration
 eval "$(fzf --zsh)"
 
