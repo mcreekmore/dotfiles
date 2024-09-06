@@ -1,5 +1,6 @@
 # starship
 eval "$(starship init zsh)"
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
 # autosuggestions
 if [[ $(uname) == "Darwin" ]]; then
