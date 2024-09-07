@@ -28,26 +28,23 @@ brew install fzf
 apt install git stow fzf ripgrep
 ```
 
-```bash
-# zsh plugins
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
-```
-
 ## Usage
 
 Setup
 
 ```bash
-git clone git@github.com:mcreekmore/.dotfiles.git
+git clone git@github.com:mcreekmore/dotfiles.git
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-cd .dotfiles
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+curl -sS https://starship.rs/install.sh | sh
+cd dotfiles
 stow .
 ```
 
 Un-stow
 ```bash
-cd .dotfiles
+cd dotfiles
 stow -D .
 ```
