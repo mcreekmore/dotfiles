@@ -21,6 +21,10 @@ fi
 ZSH_HIGHLIGHT_STYLES[path]=none
 ZSH_HIGHLIGHT_STYLES[path_prefix]=none
 
+# zoxide
+export PATH="$HOME/.local/bin:$PATH"
+eval "$(zoxide init zsh)"
+
 # golang
 if [[ ":$PATH:" != *":/usr/local/go/bin:"* ]]; then
     export PATH=$PATH:/usr/local/go/bin
