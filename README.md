@@ -23,7 +23,7 @@ brew install fzf
 ### Linux
 
 ```bash
-apt install git stow fzf ripgrep
+apt install git zsh stow fzf ripgrep
 ```
 
 ## Usage

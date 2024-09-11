@@ -2,6 +2,9 @@
 
 cd ~
 
+# set zsh default shell
+chsh -s $(which zsh)
+
 # tmux package manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
