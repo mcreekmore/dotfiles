@@ -9,6 +9,7 @@ require("plugins.lazy")
 require("lazy").setup({
 	require("plugins.comment"),
 	require("plugins.conform"),
+	require("plugins.diffview"),
 	require("plugins.gitsigns"),
 	require("plugins.harpoon"),
 	require("plugins.markdown-preview"),

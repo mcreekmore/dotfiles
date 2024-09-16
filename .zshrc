@@ -51,6 +51,11 @@ alias c="clear"
 
 export PATH=$PATH:$(go env GOPATH)/bin
 
+# default browser for wsl
+if uname -r |grep -q 'microsoft' ; then
+    export BROWSER='/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe'
+fi
+
 # solana
 PATH="/home/matt/.local/share/solana/install/active_release/bin:$PATH"
 
