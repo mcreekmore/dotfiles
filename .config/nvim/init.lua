@@ -12,6 +12,7 @@ require("lazy").setup({
 	require("plugins.diffview"),
 	require("plugins.gitsigns"),
 	require("plugins.harpoon"),
+	require("plugins.lazygit"),
 	require("plugins.markdown-preview"),
 	require("plugins.mini"),
 	require("plugins.nvim-cmp"),
@@ -29,9 +30,12 @@ require("lazy").setup({
 
 	-- themes
 	-- require("themes.tokyonight"),
-	require("themes.catppuccin"),
+	-- require("themes.catppuccin"),
+	require("themes.primeppuccin"),
 }, {
 	ui = {
 		icons = {},
 	},
 })
+
+vim.cmd.colorscheme("catppuccin")
