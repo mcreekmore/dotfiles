@@ -45,6 +45,7 @@ $choco_packages = @(
     "autohotkey"
     "bitwarden"
     "chrome-remote-desktop-host"
+    "cpu-z",
     "citrix-workspace"
     "directx"
     "discord"
