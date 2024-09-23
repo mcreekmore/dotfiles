@@ -18,6 +18,7 @@ require("lazy").setup({
 	require("plugins.nvim-cmp"),
 	require("plugins.nvim-lspconfig"),
 	require("plugins.nvim-treesitter"),
+	require("plugins.nvim-treesitter-textobjects"),
 	require("plugins.oil"),
 	require("plugins.render-markdown"),
 	require("plugins.telescope"),
