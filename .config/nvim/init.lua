@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-require("settings")
+require("options")
 require("keymaps")
 require("misc")
 require("plugins.lazy")
