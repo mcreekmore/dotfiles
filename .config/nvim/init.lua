@@ -32,10 +32,9 @@ require("lazy").setup({
 	-- require("themes.tokyonight"),
 	-- require("themes.catppuccin"),
 	require("themes.primeppuccin"),
+	-- require("themes.kanagawa"),
 }, {
 	ui = {
 		icons = {},
 	},
 })
-
-vim.cmd.colorscheme("catppuccin")

@@ -66,9 +66,14 @@ vim.opt.scrolloff = 15
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
+-- convert tabs to spaces
+vim.opt.expandtab = true
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
+
+-- Cursor can move anywhere in visual block mode
+vim.opt.virtualedit = "block"
