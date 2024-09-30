@@ -20,6 +20,7 @@ require("lazy").setup({
 	require("plugins.nvim-dap-ui"),
 	require("plugins.nvim-dap-vscode-js"),
 	require("plugins.nvim-lspconfig"),
+	require("plugins.nvim-tree"),
 	require("plugins.nvim-treesitter"),
 	require("plugins.nvim-treesitter-textobjects"),
 	require("plugins.oil"),
