@@ -39,7 +39,10 @@ TMUX_POWERLINE_THEME='catppuccin'
 
 # zoxide
 export PATH="$HOME/.local/bin:$PATH"
-eval "$(zoxide init zsh)"
+if command -v zoxide > /dev/null 2>&1; then
+    eval "$(zoxide init zsh)"
+    alias cd='z'
+fi
 
 # golang
 if [[ ":$PATH:" != *":/usr/local/go/bin:"* ]]; then
@@ -75,8 +78,14 @@ alias ls="ls --color=auto"
 bindkey "^[[1;5C" forward-word # ctrl + right arrow 
 bindkey "^[[1;5D" backward-word # ctrl + left arrow
 
-export PATH="$HOME/dotfiles/scripts:$PATH"
+path+=("$HOME/dotfiles/scripts")
+export PATH
+# export PATH="$HOME/dotfiles/scripts:$PATH"
 alias tms="$HOME/dotfiles/scripts/tmux-sessionizer.sh"
+alias zs="$HOME/dotfiles/scripts/zellij-smart-sessionizer.sh"
+# ctrl + f
+bindkey -s ^f "zellij-smart-sessionizer.sh^M"
+alias zms="$HOME/dotfiles/scripts/zellij-sessionizer.sh ~/code ~/.config"
 alias dlsc="$HOME/dotfiles/scripts/download-soundcloud.sh"
 alias c="clear"
 
