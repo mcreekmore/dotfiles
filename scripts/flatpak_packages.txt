@@ -1,0 +1,16 @@
+com.valvesoftware.Steam
+org.telegram.desktop
+com.discordapp.Discord
+org.signal.Signal
+org.videolan.VLC
+md.obsidian.Obsidian
+chat.simplex.simplex 
+org.keepassxc.KeePassXC
+im.riot.Riot 
+org.audacityteam.Audacity
+com.adamcake.Bolt
+net.runelite.RuneLite
+org.gnome.Boxes
+tv.plex.PlexDesktop
+org.gnome.Connections
+
