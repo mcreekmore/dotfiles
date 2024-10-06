@@ -42,6 +42,12 @@ if [ ! -d "$HOME/dotfiles" ]; then
 else
     echo "Dotfiles repository already exists."
 fi
-# git clone https://github.com/mcreekmore/dotfiles.git ~/dotfiles
-# cd ~/dotfiles
-# stow .
+
+# setup nerd fonts
+if [ ! -f "$HOME/.local/share/fonts/HackNerdFontMono-Regular.ttf" ]; then
+    echo "Nerd font doesn't exist. Copying..."
+    mv ~/dotfiles/fonts/HackNerdFontMono-Regular.ttf ~/.local/share/fonts/
+else
+    echo "Nerd font already installed."
+fi
+# git clone --depth 100 https://github.com/ryanoasis/nerd-fonts.git
