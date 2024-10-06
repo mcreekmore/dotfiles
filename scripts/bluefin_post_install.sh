@@ -8,30 +8,9 @@ hostnamectl set-hostname bluefin
 
 # homebrew packages
 brew install $(<brew_packages.txt)
-# brew install stow
-# brew install neovim
-# brew isntall zellij
-# brew install npm
 
 # flatpak packages
 flatpak install flathub --system -y $(<flatpak_packages.txt)
-# flatpak install flathub -y com.valvesoftware.Steam
-# flatpak install flathub -y com.spotify.Client
-# flatpak install flathub -y org.telegram.desktop
-# flatpak install flathub -y com.discordapp.Discord
-# flatpak install flathub -y org.signal.Signal
-# flatpak install flathub -y org.videolan.VLC
-# flatpak install flathub -y com.obsproject.Studio # OBS
-# flatpak install flathub -y md.obsidian.Obsidian
-# flatpak install flathub -y chat.simplex.simplex 
-# flatpak install flathub -y org.keepassxc.KeePassXC # KeePassXC
-# flatpak install flathub -y im.riot.Riot # Element
-# flatpak install flathub -y org.audacityteam.Audacity
-# flatpak install flathub -y com.adamcake.Bolt
-# flatpak install flathub -y net.runelite.RuneLite
-# flatpak install flathub -y org.gnome.Boxes
-# flatpak install flathub -y tv.plex.PlexDesktop
-# flatpak install flathub -y org.gnome.Connections
 
 # setup dotfiles
 if [ ! -d "$HOME/dotfiles" ]; then
@@ -44,9 +23,10 @@ else
 fi
 
 # setup nerd fonts
-if [ ! -f "$HOME/.local/share/fonts/HackNerdFontMono-Regular.ttf" ]; then
+font="HackNerdFontMono-Regular.ttf"
+if [ ! -f "$HOME/.local/share/fonts/$font" ]; then
     echo "Nerd font doesn't exist. Copying..."
-    mv ~/dotfiles/fonts/HackNerdFontMono-Regular.ttf ~/.local/share/fonts/
+    cp ~/dotfiles/fonts/$font ~/.local/share/fonts/
 else
     echo "Nerd font already installed."
 fi
