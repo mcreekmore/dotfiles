@@ -1,6 +1,13 @@
 # uncomment this line and the bottom "zprof" to enable zsh profiling
 # zmodload zsh/zprof
 
+# set nvim (if it exists) as default editor
+if command -v nvim >/dev/null 2>&1; then
+  export EDITOR=$(command -v nvim)
+else
+  export EDITOR=$(command -v vim)
+fi
+
 # homebrew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 

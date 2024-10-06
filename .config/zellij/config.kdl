@@ -212,12 +212,12 @@ plugins {
 //    - true
 //    - false (Default)
 //
-// simplified_ui true
+simplified_ui true
 
 // Choose the path to the default shell that zellij will use for opening new panes
 // Default: $SHELL
 //
-// default_shell "fish"
+default_shell "zsh"
 
 // Choose the path to override cwd that zellij will use for opening new panes
 //
@@ -228,7 +228,7 @@ plugins {
 //   - true (default)
 //   - false
 //
-// pane_frames true
+// pane_frames false
 
 // Toggle between having Zellij lay out panes according to a predefined set of layouts whenever possible
 // Options:
@@ -298,7 +298,7 @@ theme "catppuccin-mocha"
 //   - true (default)
 //   - false
 //
-// mouse_mode false
+// mouse_mode true
 
 // Configure the scroll back buffer size
 // This is the number of lines zellij stores for each pane in the scroll back
@@ -325,7 +325,7 @@ theme "catppuccin-mocha"
 //   - system (default)
 //   - primary
 //
-// copy_clipboard "primary"
+copy_clipboard "primary"
 
 // Enable or disable automatic copy (and clear) of selection when releasing mouse
 // Default: true
