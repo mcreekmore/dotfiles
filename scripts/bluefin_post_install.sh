@@ -32,4 +32,6 @@ if [ ! -f "$HOME/.config/tmux/plugin/tpm" ]; then
     echo "Setting up tpm..."
     git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
     ~/.config/tmux/plugins/tpm/bin/install_plugins
+    mkdir -p ~/.config/tmux/plugins/catppuccin
+    git clone https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
 fi
