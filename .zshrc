@@ -1,4 +1,5 @@
-zmodload zsh/zprof
+# uncomment this line and the bottom "zprof" to enable zsh profiling
+# zmodload zsh/zprof
 
 # starship
 eval "$(starship init zsh)"
@@ -66,4 +67,4 @@ alias ls="ls --color=auto"
 bindkey "^[[1;5C" forward-word # ctrl + right arrow 
 bindkey "^[[1;5D" backward-word # ctrl + left arrow
 
-zprof
+# zprof
