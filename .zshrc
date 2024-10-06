@@ -1,6 +1,9 @@
 # uncomment this line and the bottom "zprof" to enable zsh profiling
 # zmodload zsh/zprof
 
+# homebrew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 # starship
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
@@ -42,11 +45,6 @@ esac
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH="$HOME/dotfiles/scripts:$PATH"
-alias tms="$HOME/dotfiles/scripts/tmux-sessionizer.sh"
-alias dlsc="$HOME/dotfiles/scripts/download-soundcloud.sh"
-alias c="clear"
-
 export PATH=$PATH:$(go env GOPATH)/bin
 
 # default browser for wsl
@@ -67,4 +65,11 @@ alias ls="ls --color=auto"
 bindkey "^[[1;5C" forward-word # ctrl + right arrow 
 bindkey "^[[1;5D" backward-word # ctrl + left arrow
 
+export PATH="$HOME/dotfiles/scripts:$PATH"
+alias tms="$HOME/dotfiles/scripts/tmux-sessionizer.sh"
+alias dlsc="$HOME/dotfiles/scripts/download-soundcloud.sh"
+alias c="clear"
+
 # zprof
+
+

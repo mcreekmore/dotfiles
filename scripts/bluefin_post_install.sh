@@ -18,8 +18,6 @@ if [ ! -d "$HOME/dotfiles" ]; then
     git clone https://github.com/mcreekmore/dotfiles.git ~/dotfiles
     cd ~/dotfiles || exit
     stow .
-else
-    echo "Dotfiles repository already exists."
 fi
 
 # setup nerd fonts
@@ -27,7 +25,11 @@ font="HackNerdFontMono-Regular.ttf"
 if [ ! -f "$HOME/.local/share/fonts/$font" ]; then
     echo "Nerd font doesn't exist. Copying..."
     cp ~/dotfiles/fonts/$font ~/.local/share/fonts/
-else
-    echo "Nerd font already installed."
 fi
-# git clone --depth 100 https://github.com/ryanoasis/nerd-fonts.git
+
+# setup tpm
+if [ ! -f "$HOME/.config/tmux/plugin/tpm" ]; then
+    echo "Setting up tpm..."
+    git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+    ~/.config/tmux/plugins/tpm/bin/install_plugins
+fi

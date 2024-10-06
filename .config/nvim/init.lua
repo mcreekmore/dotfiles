@@ -35,9 +35,9 @@ require("lazy").setup({
 
 	-- themes
 	-- require("themes.tokyonight"),
-	-- require("themes.catppuccin"),
+	require("themes.catppuccin"),
 	-- require("themes.primeppuccin"),
-	require("themes.rose-pine"),
+	-- require("themes.rose-pine"),
 	-- require("themes.kanagawa"),
 }, {
 	ui = {
