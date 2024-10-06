@@ -1,3 +1,5 @@
+zmodload zsh/zprof
+
 # starship
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
@@ -29,11 +31,6 @@ eval "$(zoxide init zsh)"
 if [[ ":$PATH:" != *":/usr/local/go/bin:"* ]]; then
     export PATH=$PATH:/usr/local/go/bin
 fi
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # pnpm
 export PNPM_HOME="/home/matt/.local/share/pnpm"
@@ -68,3 +65,5 @@ alias ls="ls --color=auto"
 # keybinds
 bindkey "^[[1;5C" forward-word # ctrl + right arrow 
 bindkey "^[[1;5D" backward-word # ctrl + left arrow
+
+zprof
