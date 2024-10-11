@@ -44,6 +44,7 @@ $choco_packages = @(
     "audacity"
     "autohotkey"
     "bitwarden"
+    "brave",
     "chrome-remote-desktop-host"
     "cpu-z",
     "citrix-workspace"
