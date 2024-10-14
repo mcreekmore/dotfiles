@@ -63,6 +63,7 @@ $choco_packages = @(
     "malwarebytes"
     "microsoft-windows-terminal"
     "mullvad-app"
+    "obs-studio"
     "obsidian"
     "parsec"
     "playnite"
