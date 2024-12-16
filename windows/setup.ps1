@@ -69,6 +69,7 @@ $choco_packages = @(
     "playnite"
     "plex"
     "plexamp"
+    "powertoys"
     "rufus"
     "runelite"
     "slack"
