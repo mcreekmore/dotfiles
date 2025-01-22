@@ -1,5 +1,5 @@
 # set scoop env path
-[environment]::setEnvironmentVariable('SCOOP','C:\scoop','User')
+[environment]::setEnvironmentVariable('SCOOP', 'C:\scoop', 'User')
 
 # set timezone
 %windir%\system32\tzutil /s "Eastern Standard Time"
@@ -10,11 +10,13 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 # install scoop
 if (Get-Command scoop -ErrorAction SilentlyContinue) {
     Write-Host "Scoop is already installed. Skipping installation."
-} else {
+}
+else {
     try {
         Invoke-Expression "& {$(Invoke-RestMethod get.scoop.sh)} -RunAsAdmin"
         Write-Host "Scoop installed successfully."
-    } catch {
+    }
+    catch {
         Write-Host "Error installing Scoop."
     }
 }
@@ -84,6 +86,7 @@ $choco_packages = @(
     "telegram"
     "vlc"
     "vnc-viewer"
+    "vortex"
     "vscode"
     "wezterm"
     "windirstat"
