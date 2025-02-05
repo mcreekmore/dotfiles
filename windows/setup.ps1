@@ -10,13 +10,11 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 # install scoop
 if (Get-Command scoop -ErrorAction SilentlyContinue) {
     Write-Host "Scoop is already installed. Skipping installation."
-}
-else {
+} else {
     try {
         Invoke-Expression "& {$(Invoke-RestMethod get.scoop.sh)} -RunAsAdmin"
         Write-Host "Scoop installed successfully."
-    }
-    catch {
+    } catch {
         Write-Host "Error installing Scoop."
     }
 }
@@ -89,6 +87,7 @@ $choco_packages = @(
     "vortex"
     "vscode"
     "wezterm"
+    "winbtrfs"
     "windirstat"
     "zoom"
 )
