@@ -1,6 +1,9 @@
 # set scoop env path
 [environment]::setEnvironmentVariable('SCOOP', 'C:\scoop', 'User')
 
+# configure powershell profile location
+$PROFILE = "C:\New\Path\profile.ps1"
+
 # set timezone
 %windir%\system32\tzutil /s "Eastern Standard Time"
 
@@ -72,10 +75,11 @@ $choco_packages = @(
     "powertoys"
     "rufus"
     "runelite"
+    "signal"
     "slack"
     "soundswitch"
     "spotify"
-    "signal"
+    "starship"
     "steam"
     "sudo"
     "tailscale"
