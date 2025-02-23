@@ -90,6 +90,7 @@ alias dlsc="$HOME/dotfiles/scripts/download-soundcloud.sh"
 alias c="clear"
 alias k="kubectl"
 alias h="helm"
+alias t="terraform"
 
 # zprof
 
