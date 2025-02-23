@@ -88,6 +88,8 @@ bindkey -s ^f "zellij-smart-sessionizer.sh^M"
 alias zms="$HOME/dotfiles/scripts/zellij-sessionizer.sh ~/code ~/.config"
 alias dlsc="$HOME/dotfiles/scripts/download-soundcloud.sh"
 alias c="clear"
+alias k="kubectl"
+alias h="helm"
 
 # zprof
 
