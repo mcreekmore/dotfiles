@@ -62,8 +62,6 @@ esac
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH=$PATH:$(go env GOPATH)/bin
-
 # default browser for wsl
 if uname -r |grep -q 'microsoft' ; then
     export BROWSER='/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe'
