@@ -1,8 +1,8 @@
 # set scoop env path
 [environment]::setEnvironmentVariable('SCOOP', 'C:\scoop', 'User')
 
-# configure powershell profile location
-$PROFILE = "C:\New\Path\profile.ps1"
+# symlink powershell profile location
+New-Item -ItemType SymbolicLink -Path $PROFILE -Target ".\Microsoft.PowerShell_profile.ps1"
 
 # set timezone
 %windir%\system32\tzutil /s "Eastern Standard Time"
@@ -48,6 +48,7 @@ $choco_packages = @(
     "autohotkey"
     "bitwarden"
     "brave",
+    "chezmoi",
     "chrome-remote-desktop-host"
     "cpu-z",
     "citrix-workspace"
@@ -97,3 +98,5 @@ $choco_packages = @(
 )
 
 choco install -y $choco_packages
+
+# TODO chezmoi init dotfiles
