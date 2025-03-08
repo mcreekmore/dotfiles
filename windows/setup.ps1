@@ -1,8 +1,8 @@
 # set scoop env path
 [environment]::setEnvironmentVariable('SCOOP', 'C:\scoop', 'User')
 
-# symlink powershell profile location
-New-Item -ItemType SymbolicLink -Path $PROFILE -Target ".\Microsoft.PowerShell_profile.ps1"
+# copy powershell profile location
+Copy-Item ".\Microsoft.PowerShell_profile.ps1" -Destination "$PROFILE"
 
 # set timezone
 %windir%\system32\tzutil /s "Eastern Standard Time"
