@@ -1,0 +1,6 @@
+{
+  "windows": {
+    "stripExtensions": false,
+    "useBuiltinAutoTemplate": false
+  }
+}
