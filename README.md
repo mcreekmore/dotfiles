@@ -6,19 +6,15 @@ configuration managed by [chezmoi](https://www.chezmoi.io/)
 ## Requirements
 
 - Git
-- Stow
-- [fzf](https://github.com/junegunn/fzf)
-- [ripgrep](https://github.com/BurntSushi/ripgrep)
+- [chezmoi](https://github.com/twpayne/chezmoi)
+
 
 ## Installation
 
 ### OSX
 
 ```bash
-brew install git
-brew install stow
-brew install ripgrep
-brew install fzf
+brew install git stow ripgrep fzf chezmoi
 ```
 
 ### Linux
@@ -29,19 +25,15 @@ apt install git zsh stow fzf ripgrep
 
 ## Usage
 
-Setupjj
-
 Setup
 
 ```bash
-brew insatll chezmoi
-chezmoi init git@github.com:mcreekmore/dotfiles.git
-# git clone git@github.com:mcreekmore/dotfiles.git
+chezmoi init --apply --verbose https://github.com/mcreekmore/dotfiles.git
 # ./dotfiles/scripts/setup.sh
 ```
 
-Un-stow
+<!-- Un-stow
 ```bash
 cd dotfiles
 stow -D .
-```
+``` -->

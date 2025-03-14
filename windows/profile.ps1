@@ -1,2 +1,3 @@
 Invoke-Expression (&starship init powershell)
-$Env:STARSHIP_CONFIG = "${env:USERPROFILE}\.local\share\chezmoi\.config\starship\starship.toml"
+$Env:STARSHIP_CONFIG = "${env:USERPROFILE}\.config\starship\starship.toml"
+$Env:EDITOR = "code"
