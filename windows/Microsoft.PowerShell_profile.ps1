@@ -1,1 +1,1 @@
-. "$env:USERPROFILE\dotfiles\windows\profile.ps1"
+. "$env:USERPROFILE\.local\share\chezmoi\windows\profile.ps1"
