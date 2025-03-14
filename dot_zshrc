@@ -9,7 +9,7 @@ else
 fi
 
 # homebrew
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+export PATH="/opt/homebrew/bin:$PATH" >> ~/.zshrc
 
 # starship
 eval "$(starship init zsh)"
