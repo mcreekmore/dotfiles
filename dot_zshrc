@@ -19,14 +19,14 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 if [[ $(uname) == "Darwin" ]]; then
     source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 else
-    source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
 # syntax highlighting
 if [[ $(uname) == "Darwin" ]]; then
     source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 else
-    source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 # disable underline
@@ -80,19 +80,20 @@ alias ls="ls --color=auto"
 bindkey "^[[1;5C" forward-word # ctrl + right arrow 
 bindkey "^[[1;5D" backward-word # ctrl + left arrow
 
-path+=("$HOME/dotfiles/scripts")
+path+=("$HOME/scripts")
 export PATH
 # export PATH="$HOME/dotfiles/scripts:$PATH"
-alias tms="$HOME/dotfiles/scripts/tmux-sessionizer.sh"
-alias zs="$HOME/dotfiles/scripts/zellij-smart-sessionizer.sh"
+alias tms="$HOME/scripts/tmux-sessionizer.sh"
+alias zs="$HOME/scripts/zellij-smart-sessionizer.sh"
 # ctrl + f
 bindkey -s ^f "zellij-smart-sessionizer.sh^M"
-alias zms="$HOME/dotfiles/scripts/zellij-sessionizer.sh ~/code ~/.config"
-alias dlsc="$HOME/dotfiles/scripts/download-soundcloud.sh"
+alias zms="$HOME/scripts/zellij-sessionizer.sh ~/code ~/.config"
+alias dlsc="$HOME/scripts/download-soundcloud.sh"
 alias c="clear"
 alias k="kubectl"
 alias h="helm"
 alias t="tofu"
+alias cm="chezmoi"
 
 # zprof
 
