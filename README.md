@@ -12,5 +12,6 @@ configuration managed by [chezmoi](https://www.chezmoi.io/)
 
 ```bash
 chezmoi init --apply --verbose https://github.com/mcreekmore/dotfiles.git
-~/scripts/<setup>.sh
+cd ~/scripts
+./<setup>.sh
 ```

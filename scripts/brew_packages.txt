@@ -2,3 +2,4 @@ stow
 neovim
 npm
 zellij
+tailscale

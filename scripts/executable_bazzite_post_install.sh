@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# set zsh default shell
+chsh -s $(which zsh)
+
 # set hostname
 hostnamectl set-hostname bazzite
 

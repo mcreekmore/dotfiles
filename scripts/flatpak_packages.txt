@@ -13,4 +13,7 @@ net.runelite.RuneLite
 org.gnome.Boxes
 tv.plex.PlexDesktop
 org.gnome.Connections
-
+com.brave.Browser
+com.bitwarden.desktop
+com.spotify.Client
+org.chromium.Chromium
