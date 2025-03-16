@@ -9,7 +9,11 @@ else
 fi
 
 # homebrew
-export PATH="/opt/homebrew/bin:$PATH" >> ~/.zshrc
+if [[ $(uname) == "Darwin" ]]; then
+    export PATH="/opt/homebrew/bin:$PATH"
+else
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
 # starship
 eval "$(starship init zsh)"
