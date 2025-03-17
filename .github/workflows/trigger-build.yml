@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Fire Repository Dispatch Event
-        uses: peter-evans/repository-dispatch@v2
+        uses: peter-evans/repository-dispatch@v3
         with:
-          token: ${{ secrets.REPO_CREEKMORE_IO_TOKEN }}  # PAT from Repo A
+          token: ${{ secrets.REPO_CREEKMORE_IO_TOKEN }}
           repository: mcreekmore/creekmore.io
           event-type: trigger_build

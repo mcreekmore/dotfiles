@@ -44,4 +44,3 @@ chezmoi init --apply --verbose https://github.com/mcreekmore/dotfiles.git
 bw config server https://vault.creekmore.io
 export BW_SESSION=$(bw unlock --raw)
 bw sync
-# test comment
