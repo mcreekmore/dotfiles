@@ -2,7 +2,7 @@
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 # Set env variables
-[environment]::setEnvironmentVariable('SCOOP', 'C:\scoop', 'User')
+# [environment]::setEnvironmentVariable('SCOOP', 'C:\scoop', 'User')
 [environment]::setEnvironmentVariable('EDITOR', 'code', 'User')
 [environment]::setEnvironmentVariable('STARSHIP_CONFIG', '${USERPROFILE}\.config\starship\starship.toml', 'User')
 
@@ -130,6 +130,12 @@ Write-Host "`nChoco installation process completed" -ForegroundColor Cyan
     Install scoop and its packages/buckets
 #>
 
+# install scoop
+if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
+    Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+} else {
+    Write-Host "`n[✓] Scoop is already installed." -ForegroundColor Green
+}
 
 # define paths to the buckets and packages files
 $bucketsFile = Join-Path -Path $scriptDir -ChildPath "scoop_buckets.txt"

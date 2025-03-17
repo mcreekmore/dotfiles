@@ -1,3 +1,5 @@
+ahmetb.kubectx
+ahmetb.kubens
 AntibodySoftware.WizTree
 AntoineAflalo.SoundSwitch
 Audacity.Audacity
@@ -7,6 +9,7 @@ Brave.Brave
 Citrix.Workspace
 CPUID.CPU-Z
 CPUID.HWMonitor
+direnv.direnv
 Discord.Discord
 Docker.DockerDesktop
 ElectronicArts.EADesktop
@@ -17,8 +20,10 @@ GOG.Galaxy
 Google.Chrome
 Google.ChromeRemoteDesktopHost
 Google.GoogleDrive
+Helm.Helm
 Hibbiki.Chromium
 KeePassXCTeam.KeePassXC
+Kubernetes.kubectl
 Malwarebytes.Malwarebytes
 Microsoft.PowerToys
 Microsoft.VisualStudioCode
@@ -27,6 +32,7 @@ Mozilla.Firefox
 NexusMods.Vortex
 OBSProject.OBSStudio
 Obsidian.Obsidian
+OpenTofu.Tofu
 OpenWhisperSystems.Signal
 Parsec.Parsec
 Playnite.Playnite
@@ -35,6 +41,7 @@ Plex.Plexamp
 RealVNC.VNCViewer
 Rufus.Rufus
 RuneLite.RuneLite
+sharkdp.bat
 SlackTechnologies.Slack
 Spotify.Spotify
 Starship.Starship
