@@ -6,7 +6,7 @@ configuration managed by [chezmoi](https://www.chezmoi.io/)
 
 ### Windows
 ```powershell
-irm https://creekmore.io/win | iex
+irm https://creekmore.io/win.ps1 | iex
 ```
 
 ### Linux / OSX
