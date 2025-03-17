@@ -23,7 +23,6 @@ Microsoft.PowerToys
 Microsoft.VisualStudioCode
 Microsoft.WindowsTerminal
 Mozilla.Firefox
-MullvadVPN.MullvadVPN
 NexusMods.Vortex
 OBSProject.OBSStudio
 Obsidian.Obsidian
@@ -46,6 +45,7 @@ Ubisoft.Connect
 Valve.Steam
 VideoLAN.VLC
 WinDirStat.WinDirStat
+WireGuard.WireGuard
 Zoom.Zoom
 gerardog.gsudo
 twpayne.chezmoi
