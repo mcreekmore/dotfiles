@@ -1,6 +1,11 @@
 # get the directory of the current script
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 
+# Set env variables
+[environment]::setEnvironmentVariable('SCOOP', 'C:\scoop', 'User')
+[environment]::setEnvironmentVariable('EDITOR', 'code', 'User')
+[environment]::setEnvironmentVariable('STARSHIP_CONFIG', '${USERPROFILE}\.config\starship\starship.toml', 'User')
+
 # copy powershell profile location
 $powershellProfilePath = Join-Path -Path $scriptDir -ChildPath ".\Microsoft.PowerShell_profile.ps1"
 Copy-Item $powershellProfilePath -Destination "$PROFILE"
@@ -125,8 +130,6 @@ Write-Host "`nChoco installation process completed" -ForegroundColor Cyan
     Install scoop and its packages/buckets
 #>
 
-# set scoop env path
-[environment]::setEnvironmentVariable('SCOOP', 'C:\scoop', 'User')
 
 # define paths to the buckets and packages files
 $bucketsFile = Join-Path -Path $scriptDir -ChildPath "scoop_buckets.txt"
