@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # starship
-curl -sS https://starship.rs/install.sh | sh 
+curl -sS https://starship.rs/install.sh | sh
 
 # zoxide
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
@@ -20,11 +20,11 @@ else
 fi
 
 # Define a list of Homebrew packages as a space-separated string
-packages="chezmoi zsh-autosuggestions zsh-syntax-highlighting"
+packages="chezmoi zsh-autosuggestions zsh-syntax-highlighting bitwarden-cli"
 
 # Loop over each package and install it if it's not already installed
 for pkg in $packages; do
-  if ! brew list --versions "$pkg" > /dev/null 2>&1; then
+  if ! brew list --versions "$pkg" >/dev/null 2>&1; then
     echo "Installing $pkg..."
     brew install "$pkg" --quiet
   else
@@ -39,3 +39,8 @@ sudo chsh -s $(which zsh)
 
 # set up dotfiles
 chezmoi init --apply --verbose https://github.com/mcreekmore/dotfiles.git
+
+# set up bitwarden
+bw config server https://vault.creekmore.io
+export BW_SESSION=$(bw unlock --raw)
+bw sync

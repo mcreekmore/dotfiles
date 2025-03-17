@@ -5,6 +5,7 @@ AntoineAflalo.SoundSwitch
 Audacity.Audacity
 AutoHotkey.AutoHotkey
 Bitwarden.Bitwarden
+Bitwarden.CLI
 Brave.Brave
 Citrix.Workspace
 CPUID.CPU-Z
