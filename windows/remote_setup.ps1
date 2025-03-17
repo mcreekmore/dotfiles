@@ -8,7 +8,6 @@ if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
 
 $winget_packages = @(
     "Git.Git",
-    ""
     "twpayne.chezmoi"
 )
 
@@ -51,8 +50,5 @@ try {
     Write-Host "[X] Failed to initialize chezmoi: $($_.Exception.Message)" -ForegroundColor Red
     exit 1
 }
-
-# Run full script locally
-. (Join-Path -Path $HOME -ChildPath ".local\chezmoi\windows\setup.ps1")
 
 Write-Host "`nFinish installation via ~\windows\setup.ps1" -ForegroundColor Cyan
