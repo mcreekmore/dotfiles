@@ -1,18 +1,16 @@
 #!/bin/bash
 
-cd ~
+# starship
+curl -sS https://starship.rs/install.sh | sh 
+
+# zoxide
+curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 
 # # zsh-autosuggestions
 # git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 
 # # zsh-syntax-highlighting
 # git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
-
-# starship
-curl -sS https://starship.rs/install.sh | sh
-
-# zoxide
-curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 
 if ! command_exists brew; then
   echo "Homebrew not found. Installing Homebrew..."
@@ -42,3 +40,6 @@ echo "All packages are installed!"
 
 # set zsh default shell
 chsh -s $(which zsh)
+
+# set up dotfiles
+chezmoi init --apply --verbose https://github.com/mcreekmore/dotfiles.git
