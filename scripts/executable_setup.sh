@@ -1,21 +1,12 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 cd ~
 
-# set zsh default shell
-chsh -s $(which zsh)
+# # zsh-autosuggestions
+# git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 
-# tmux package manager
-# git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-# zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-
-# zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
-
-# oh-my-zsh
-# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# # zsh-syntax-highlighting
+# git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
 
 # starship
 curl -sS https://starship.rs/install.sh | sh
@@ -23,6 +14,31 @@ curl -sS https://starship.rs/install.sh | sh
 # zoxide
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 
-cd dotfiles
+if ! command_exists brew; then
+  echo "Homebrew not found. Installing Homebrew..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+else
+  echo "Homebrew is already installed."
+fi
 
-stow .
+# Define a list of Homebrew packages
+packages=(
+  chezmoi
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
+
+# Loop over each package and install it if it's not already installed
+for pkg in "${packages[@]}"; do
+  if ! brew list --versions "$pkg" > /dev/null; then
+    echo "Installing $pkg..."
+    brew install "$pkg"
+  else
+    echo "$pkg is already installed."
+  fi
+done
+
+echo "All packages are installed!"
+
+# set zsh default shell
+chsh -s $(which zsh)
