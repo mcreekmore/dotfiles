@@ -35,7 +35,7 @@ done
 echo "All packages are installed!"
 
 # set zsh default shell
-chsh -s $(which zsh)
+sudo chsh -s $(which zsh)
 
 # set up dotfiles
 chezmoi init --apply --verbose https://github.com/mcreekmore/dotfiles.git
