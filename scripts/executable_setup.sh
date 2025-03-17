@@ -19,18 +19,14 @@ else
   echo "Homebrew is already installed."
 fi
 
-# Define a list of Homebrew packages
-packages=(
-  chezmoi
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-)
+# Define a list of Homebrew packages as a space-separated string
+packages="chezmoi zsh-autosuggestions zsh-syntax-highlighting"
 
 # Loop over each package and install it if it's not already installed
-for pkg in "${packages[@]}"; do
-  if ! brew list --versions "$pkg" > /dev/null; then
+for pkg in $packages; do
+  if ! brew list --versions "$pkg" > /dev/null 2>&1; then
     echo "Installing $pkg..."
-    brew install "$pkg"
+    brew install "$pkg" --quiet
   else
     echo "$pkg is already installed."
   fi
