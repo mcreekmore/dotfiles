@@ -49,4 +49,4 @@ try {
     exit 1
 }
 
-Write-Host "`nFinish installation via ~\windows\setup.ps1" -ForegroundColor Cyan
+Write-Host "`nFinish setup via ~\windows\setup.ps1" -ForegroundColor Cyan
