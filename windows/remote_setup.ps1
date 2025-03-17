@@ -1,5 +1,3 @@
-$package = "twpayne.chezmoi"
-
 # Check if Winget is available
 if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
     Write-Host "Error: Winget is not installed or not in PATH" -ForegroundColor Red
