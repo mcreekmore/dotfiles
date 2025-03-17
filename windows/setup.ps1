@@ -120,10 +120,6 @@ foreach ($package in $choco_packages) {
 
 Write-Host "`nChoco installation process completed" -ForegroundColor Cyan
 
-# foreach ($package in $choco_packages) {
-#     choco install $package -y
-# }
-
 <#
     .SYNOPSIS
     Install scoop and its packages/buckets
@@ -192,22 +188,27 @@ if (Test-Path -Path $scoopPackagesFile) {
 #>
 
 # setup dotfiles
-chezmoi init --apply --verbose https://github.com/mcreekmore/dotfiles.git
+Write-Host "`nStarting chezmoi dotfiles sync..." -ForegroundColor Cyan
+try {
+    chezmoi init --apply --verbose https://github.com/mcreekmore/dotfiles.git
+    Write-Host "[✓] Successfully initialized chezmoi" -ForegroundColor Green
+} catch {
+    Write-Host "[X] Failed to initialize chezmoi: $($_.Exception.Message)" -ForegroundColor Red
+}
 
 Write-Host "`nStarting AutoHotKey Shortcut Creation..." -ForegroundColor Cyan
 
-$linkPath = "$HOME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Minimize CTRL + F1.lnk"
-$targetPath = Join-Path -Path $scriptDir -ChildPath "\ahk\Minimize CTRL + F1.ahk"
+$startupProgramsPath = "$HOME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Minimize CTRL + F1.lnk"
+$targetScriptPath = Join-Path -Path $scriptDir -ChildPath "\ahk\Minimize CTRL + F1.ahk"
 
-if (Test-Path -Path $linkPath) {
-    Write-Host "[✓] Symbolic link already exists at $linkPath" -ForegroundColor Green
-    return
-}
-
-Write-Host "[...] Creating shortcut 'Minimize CTRL + F1.lnk'..." -ForegroundColor Cyan
-try {
-    New-Item -ItemType SymbolicLink -Path $linkPath -Name "Minimize CTRL + F1.lnk" -Value $targetPath -ErrorAction Stop
-    Write-Host "[✓] Successfully created startup shortcut" -ForegroundColor Green
-} catch {
-    Write-Host "[X] Failed to create shortcut: $($_.Exception.Message)" -ForegroundColor Red
+if (Test-Path -Path $startupProgramsPath) {
+    Write-Host "[✓] Symbolic link already exists at $startupProgramsPath" -ForegroundColor Green
+} else {
+    Write-Host "[...] Creating shortcut 'Minimize CTRL + F1.lnk'..." -ForegroundColor Cyan
+    try {
+        New-Item -ItemType SymbolicLink -Path $startupProgramsPath -Name "Minimize CTRL + F1.lnk" -Value $targetScriptPath -ErrorAction Stop
+        Write-Host "[✓] Successfully created startup shortcut" -ForegroundColor Green
+    } catch {
+        Write-Host "[X] Failed to create shortcut: $($_.Exception.Message)" -ForegroundColor Red
+    }
 }
