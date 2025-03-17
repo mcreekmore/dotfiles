@@ -12,6 +12,7 @@ Docker.DockerDesktop
 ElectronicArts.EADesktop
 Element.Element
 GIMP.GIMP
+Git.Git
 GOG.Galaxy
 Google.Chrome
 Google.ChromeRemoteDesktopHost
