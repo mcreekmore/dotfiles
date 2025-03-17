@@ -12,6 +12,9 @@ Set-TimeZone -Id "Eastern Standard Time"
     .SYNOPSIS
     Install winget programs
 #>
+
+Write-Host "`nStarting Winget Package Installation..." -ForegroundColor Cyan
+
 # Check if Winget is available
 if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
     Write-Host "Error: Winget is not installed or not in PATH" -ForegroundColor Red
@@ -57,9 +60,7 @@ foreach ($package in $winget_packages) {
     }
 }
 
-Write-Host "`nInstallation process completed" -ForegroundColor Cyan
-
-
+Write-Host "`nWinget installation process completed" -ForegroundColor Cyan
 
 <#
     .SYNOPSIS
@@ -67,12 +68,13 @@ Write-Host "`nInstallation process completed" -ForegroundColor Cyan
 #>
 
 # install chocolatey
+
 Set-ExecutionPolicy Bypass -Scope Process -Force
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
 if (-not (Get-Command choco -ErrorAction SilentlyContinue)) {
     Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 } else {
-    Write-Host "Chocolatey is already installed."
+    Write-Host "`n[✓] Chocolatey is already installed." -ForegroundColor Green
 }
 
 # define the path to the packages file
@@ -87,9 +89,40 @@ if (Test-Path -Path $chocoPackagesFile) {
     $choco_packages = @()
 }
 
+# install packages with formatted output
+Write-Host "`nStarting Choco Package Installation..." -ForegroundColor Cyan
 foreach ($package in $choco_packages) {
-    choco install $package -y
+    # Check if package is already installed
+    try {
+        $installedOutput = choco list --exact --local-only $package -r -ErrorAction Stop
+        $installed = [bool]$installedOutput
+    } catch {
+        $installed = $false
+    }
+
+    if ($installed) {
+        Write-Host "[✓] $package is already installed" -ForegroundColor Green
+        continue
+    }
+
+    # Attempt installation
+    Write-Host "[...] Installing $package" -ForegroundColor Cyan
+    try {
+        choco install $package -y --acceptlicense --no-progress --fail-on-error-output --erroraction stop
+        if ($LASTEXITCODE -ne 0) {
+            throw "Exit code: $LASTEXITCODE"
+        }
+        Write-Host "[✓] Successfully installed $package" -ForegroundColor Green
+    } catch {
+        Write-Host "[X] Failed to install $package ($($_.Exception.Message))" -ForegroundColor Red
+    }
 }
+
+Write-Host "`nChoco installation process completed" -ForegroundColor Cyan
+
+# foreach ($package in $choco_packages) {
+#     choco install $package -y
+# }
 
 <#
     .SYNOPSIS
@@ -103,44 +136,54 @@ foreach ($package in $choco_packages) {
 $bucketsFile = Join-Path -Path $scriptDir -ChildPath "scoop_buckets.txt"
 $scoopPackagesFile = Join-Path -Path $scriptDir -ChildPath "scoop_packages.txt"
 
-# add Scoop buckets if they are not already installed
+Write-Host "`nStarting Scoop Bucket Installation..." -ForegroundColor Cyan
 if (Test-Path -Path $bucketsFile) {
-    # get list of currently installed buckets
+    # Get list of installed buckets
     $installedBuckets = & scoop bucket list | ForEach-Object { $_.Name }
+    
     Get-Content -Path $bucketsFile | ForEach-Object {
         $line = $_.Trim()
-        if ($line -and $line -notmatch '^#') {
-            $parts = $line -split '\s+', 2
-            $bucketName = $parts[0]
-            if ($bucketName -notin $installedBuckets) {
-                if ($parts.Length -eq 2) {
-                    $url = $parts[1]
-                    Write-Host "Adding bucket '$bucketName' with URL '$url'..."
-                    & scoop bucket add $bucketName $url
-                } else {
-                    Write-Host "Adding bucket '$bucketName'..."
-                    & scoop bucket add $bucketName
-                }
+        if (-not $line -or $line -match '^#') { return }
+
+        $parts = $line -split '\s+', 2
+        $bucketName = $parts[0]
+        $bucketUrl = if ($parts.Count -gt 1) { $parts[1] } else { $null }
+
+        if ($bucketName -in $installedBuckets) {
+            Write-Host "[✓] Bucket '$bucketName' is already installed" -ForegroundColor Green
+            return
+        }
+
+        # Attempt bucket addition
+        Write-Host "[...] Adding bucket '$bucketName'" -ForegroundColor Cyan
+        try {
+            if ($bucketUrl) {
+                & scoop bucket add $bucketName $bucketUrl
             } else {
-                Write-Host "Bucket '$bucketName' is already installed."
+                & scoop bucket add $bucketName
             }
+            
+            if ($LASTEXITCODE -ne 0) {
+                throw "Exit code: $LASTEXITCODE"
+            }
+            Write-Host "[✓] Successfully added bucket '$bucketName'" -ForegroundColor Green
+        } catch {
+            Write-Host "[X] Failed to add bucket '$bucketName' ($($_.Exception.Message))" -ForegroundColor Red
         }
     }
 } else {
-    Write-Warning "Buckets file not found: $bucketsFile"
+    Write-Host "[X] Buckets file not found: $bucketsFile" -ForegroundColor Red
 }
 
-# install Scoop packages
+# Load packages from file
+Write-Host "`nChecking Packages Configuration..." -ForegroundColor Cyan
 if (Test-Path -Path $scoopPackagesFile) {
-    Get-Content -Path $scoopPackagesFile | ForEach-Object {
-        $package = $_.Trim()
-        if ($package -and $package -notmatch '^#') {
-            Write-Host "Installing package '$package'..."
-            & scoop install $package
-        }
-    }
+    $scoop_packages = Get-Content -Path $scoopPackagesFile | 
+    Where-Object { $_.Trim() -notmatch '^#' -and $_.Trim() -ne '' }
+    Write-Host "[✓] Found $(@($scoop_packages).Count) packages to process" -ForegroundColor Green
 } else {
-    Write-Warning "Packages file not found: $scoopPackagesFile"
+    Write-Host "[!] Packages file not found: $scoopPackagesFile" -ForegroundColor Yellow
+    $scoop_packages = @()
 }
 
 <#
@@ -151,12 +194,20 @@ if (Test-Path -Path $scoopPackagesFile) {
 # setup dotfiles
 chezmoi init --apply --verbose https://github.com/mcreekmore/dotfiles.git
 
-# make shortcuts to auto start programs
+Write-Host "`nStarting AutoHotKey Shortcut Creation..." -ForegroundColor Cyan
+
 $linkPath = "$HOME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Minimize CTRL + F1.lnk"
 $targetPath = Join-Path -Path $scriptDir -ChildPath "\ahk\Minimize CTRL + F1.ahk"
 
-if (-not (Test-Path -Path $linkPath)) {
-    New-Item -ItemType SymbolicLink -Path $linkPath -Name "Minimize CTRL + F1.lnk" -Value $targetPath
-} else {
-    Write-Host "Symbolic link already exists at $linkPath"
+if (Test-Path -Path $linkPath) {
+    Write-Host "[✓] Symbolic link already exists at $linkPath" -ForegroundColor Green
+    return
+}
+
+Write-Host "[...] Creating shortcut 'Minimize CTRL + F1.lnk'..." -ForegroundColor Cyan
+try {
+    New-Item -ItemType SymbolicLink -Path $linkPath -Name "Minimize CTRL + F1.lnk" -Value $targetPath -ErrorAction Stop
+    Write-Host "[✓] Successfully created startup shortcut" -ForegroundColor Green
+} catch {
+    Write-Host "[X] Failed to create shortcut: $($_.Exception.Message)" -ForegroundColor Red
 }
