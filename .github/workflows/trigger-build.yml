@@ -1,0 +1,15 @@
+name: Trigger creekmore.io Build
+on:
+  push:
+    branches: [main]
+
+jobs:
+  trigger-repo-a:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fire Repository Dispatch Event
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.REPO_CREEKMORE_IO_TOKEN }}  # PAT from Repo A
+          repository: mcreekmore/creekmore.io
+          event-type: trigger_build
