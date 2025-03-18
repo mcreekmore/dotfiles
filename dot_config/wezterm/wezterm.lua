@@ -7,14 +7,14 @@ local launch_menu = {}
 config = {
 	color_scheme = "Catppuccin Mocha",
 	font = wezterm.font("Hack Nerd Font Mono", { weight = "Regular" }),
-	font_size = 18,
+	font_size = 16,
 	hide_tab_bar_if_only_one_tab = true,
 	scrollback_lines = 10000,
 	use_fancy_tab_bar = false,
 	window_close_confirmation = "NeverPrompt",
 	adjust_window_size_when_changing_font_size = false,
 	enable_tab_bar = true,
-	window_decorations = "RESIZE",
+	-- window_decorations = "RESIZE",
 	window_padding = {
 		left = 6,
 		right = 6,
@@ -44,15 +44,15 @@ config.wsl_domains = {
 	},
 }
 
-if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-	config.default_domain = "WSL:Ubuntu"
-	config.font_size = 12
-	config.window:set_inner_size(100, 100)
+-- if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+-- 	config.default_domain = "WSL:Ubuntu"
+-- 	config.font_size = 12
+-- 	config.window:set_inner_size(100, 100)
 
-	table.insert(launch_menu, {
-		label = "PowerShell",
-		args = { "powershell.exe", "-NoLogo" },
-	})
-end
+-- 	table.insert(launch_menu, {
+-- 		label = "PowerShell",
+-- 		args = { "powershell.exe", "-NoLogo" },
+-- 	})
+-- end
 
 return config

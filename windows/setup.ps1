@@ -196,6 +196,22 @@ if (Test-Path -Path $scoopPackagesFile) {
     Post install setup
 #>
 
+# set up bitwarden
+if ($env:BW_SESSION -and $env:BW_SESSION -ne "") {
+    Write-Host "BW_SESSION already exists. Skipping Bitwarden setup." -ForegroundColor Yellow
+} else {
+    Write-Host "`nStarting Bitwarden setup..." -ForegroundColor Cyan
+    try {
+        bw config server https://vault.creekmore.io
+        bw login
+        $env:BW_SESSION = (bw unlock --raw)
+        bw sync
+        Write-Host "`n[✓] Successfully initialized Bitwarden" -ForegroundColor Green
+    } catch {
+        Write-Host "`n[X] Failed to initialize Bitwarden: $($_.Exception.Message)" -ForegroundColor Red
+    }
+}
+
 # setup dotfiles
 Write-Host "`nStarting chezmoi dotfiles sync..." -ForegroundColor Cyan
 try {
