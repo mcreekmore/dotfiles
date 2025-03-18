@@ -1,7 +1,20 @@
 packages:
-  darwin:
+  all:
     brews:
       - "git"
       - "jq"
     casks:
       - "google-chrome"
+
+  darwin:
+    brews:
+    casks:
+
+  linux:
+    brews:
+    casks:
+
+  windows:
+    winget:
+    scoop:
+    choco:

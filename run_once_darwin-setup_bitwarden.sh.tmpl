@@ -1,0 +1,7 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+
+bw config server https://vault.creekmore.io
+export BW_SESSION=$(bw unlock --raw)
+bw sync
+{{ end -}}

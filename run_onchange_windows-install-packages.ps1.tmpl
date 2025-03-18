@@ -1,0 +1,21 @@
+{{ if eq .chezmoi.os "windows" -}}
+
+Write-Output "Installing Windows packages..."
+
+# Install winget packages
+{{ range .packages.windows.winget -}}
+winget install --id={{ . | quote }}
+{{ end -}}
+
+# Install scoop packages
+{{ range .packages.windows.scoop -}}
+scoop install {{ . | quote }}
+{{ end -}}
+
+# Install chocolatey packages
+{{ range .packages.windows.choco -}}
+choco install {{ . | quote }} -y
+{{ end -}}
+
+Write-Output "Package installation complete."
+{{ end -}}

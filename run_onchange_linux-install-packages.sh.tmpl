@@ -1,11 +1,18 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/bash
 
-brew bundle --no-lock --file=/dev/stdin <<EOF
-{{ range .packages.darwin.brews -}}
+brew bundle --file=/dev/stdin <<EOF
+{{ range .packages.all.brews -}}
 brew {{ . | quote }}
 {{ end -}}
-{{ range .packages.darwin.casks -}}
+{{ range .packages.all.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+
+{{ range .packages.linux.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ range .packages.linux.casks -}}
 cask {{ . | quote }}
 {{ end -}}
 EOF

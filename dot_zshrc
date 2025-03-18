@@ -2,8 +2,11 @@
 # zmodload zsh/zprof
 
 # set nvim (if it exists) as default editor
-if command -v nvim >/dev/null 2>&1; then
-  export EDITOR=$(command -v nvim)
+
+# if command -v nvim >/dev/null 2>&1; then
+#   export EDITOR=$(command -v nvim)
+if command -v code >/dev/null 2>&1; then
+  export EDITOR=$(command -v code)
 else
   export EDITOR=$(command -v vim)
 fi
