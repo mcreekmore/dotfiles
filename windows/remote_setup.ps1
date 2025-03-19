@@ -39,6 +39,23 @@ foreach ($package in $winget_packages) {
 
 Write-Host "`nWinget installation process completed" -ForegroundColor Cyan
 
+# Check if Bitwarden is already installed
+if (Get-Command bw -ErrorAction SilentlyContinue) { 
+    Write-Host "Bitwarden is already installed."
+    exit 0 
+}
+
+try {
+    bw config server https://vault.creekmore.io
+    bw login
+    [Environment]::SetEnvironmentVariable("BW_SESSION", (bw unlock --raw), "User")
+    $env:BW_SESSION = [Environment]::GetEnvironmentVariable("BW_SESSION", "User")
+    bw sync
+    Write-Host "`n[✓] Successfully initialized Bitwarden" -ForegroundColor Green
+} catch {
+    Write-Host "`n[X] Failed to initialize Bitwarden: $($_.Exception.Message)" -ForegroundColor Red
+}
+
 # Setup dotfiles
 Write-Host "`nStarting chezmoi dotfiles sync..." -ForegroundColor Cyan
 try {
