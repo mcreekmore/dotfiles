@@ -1,3 +1,6 @@
+$bwConfigServer = https://vault.creekmore.io
+$maxLoginAttempts = 3
+
 # Check if Winget is available
 if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
     Write-Host "Error: Winget is not installed or not in PATH" -ForegroundColor Red
@@ -89,24 +92,23 @@ if ($bitwardenInstalled) {
     }
 }
 
-# Configure Bitwarden if installed
+# Configure Bitwarden
 if (Get-Command bw -ErrorAction SilentlyContinue) {
-    $maxAttempts = 3
     $attempt = 0
     $success = $false
     
-    while (-not $success -and $attempt -lt $maxAttempts) {
+    while (-not $success -and $attempt -lt $maxLoginAttempts) {
         $attempt++
-        Write-Host "`n[...] Configuring Bitwarden (Attempt $attempt of $maxAttempts)" -ForegroundColor Cyan
+        Write-Host "`n[...] Configuring Bitwarden (Attempt $attempt of $maxLoginAttempts)" -ForegroundColor Cyan
         
         try {
-            bw config server https://vault.creekmore.io
+            bw config server $bwConfigServer
             Write-Host
             $bwSession = bw login --raw
             
             if (-not $bwSession) {
                 Write-Host "[X] Failed to get valid session token. Please try again." -ForegroundColor Red
-                if ($attempt -lt $maxAttempts) {
+                if ($attempt -lt $maxLoginAttempts) {
                     $retry = Read-Host "Press Enter to retry or type 'exit' to quit"
                     if ($retry -eq "exit") {
                         Write-Host "Exiting Bitwarden setup." -ForegroundColor Yellow
@@ -125,7 +127,7 @@ if (Get-Command bw -ErrorAction SilentlyContinue) {
         } catch {
             Write-Host "[X] Failed to initialize Bitwarden: $($_.Exception.Message)" -ForegroundColor Red
             
-            if ($attempt -lt $maxAttempts) {
+            if ($attempt -lt $maxLoginAttempts) {
                 $retry = Read-Host "Press Enter to retry or type 'exit' to quit"
                 if ($retry -eq "exit") {
                     Write-Host "Exiting Bitwarden setup." -ForegroundColor Yellow
@@ -160,5 +162,5 @@ try {
     Write-Host "[X] Failed to initialize chezmoi: $($_.Exception.Message)" -ForegroundColor Red
 }
 
-Write-Host "`nFinish setup via ~\windows\setup.ps1" -ForegroundColor Cyan
+Write-Host "`nFinished setup" -ForegroundColor Cyan
 Read-Host -Prompt "Press Enter to exit"
