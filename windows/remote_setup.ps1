@@ -91,19 +91,57 @@ if ($bitwardenInstalled) {
 
 # Configure Bitwarden if installed
 if (Get-Command bw -ErrorAction SilentlyContinue) {
-    try {
-        Write-Host "[...] Configuring Bitwarden" -ForegroundColor Cyan
-        bw config server https://vault.creekmore.io
-        $bwSession = bw login --raw
-        if (-not $bwSession) {
-            throw "Failed to unlock Bitwarden"
+    $maxAttempts = 3
+    $attempt = 0
+    $success = $false
+    
+    while (-not $success -and $attempt -lt $maxAttempts) {
+        $attempt++
+        Write-Host "`n[...] Configuring Bitwarden (Attempt $attempt of $maxAttempts)" -ForegroundColor Cyan
+        
+        try {
+            bw config server https://vault.creekmore.io
+            $bwSession = bw login --raw
+            
+            if (-not $bwSession) {
+                Write-Host "[X] Failed to get valid session token. Please try again." -ForegroundColor Red
+                if ($attempt -lt $maxAttempts) {
+                    $retry = Read-Host "Press Enter to retry or type 'exit' to quit"
+                    if ($retry -eq "exit") {
+                        Write-Host "Exiting Bitwarden setup." -ForegroundColor Yellow
+                        break
+                    }
+                }
+                continue
+            }
+            
+            # If we get here, we have a valid session
+            [Environment]::SetEnvironmentVariable("BW_SESSION", $bwSession, "User")
+            $env:BW_SESSION = $bwSession
+            bw sync
+            Write-Host "[✓] Successfully initialized Bitwarden" -ForegroundColor Green
+            $success = $true
+        } catch {
+            Write-Host "[X] Failed to initialize Bitwarden: $($_.Exception.Message)" -ForegroundColor Red
+            
+            if ($attempt -lt $maxAttempts) {
+                $retry = Read-Host "Press Enter to retry or type 'exit' to quit"
+                if ($retry -eq "exit") {
+                    Write-Host "Exiting Bitwarden setup." -ForegroundColor Yellow
+                    break
+                }
+            }
         }
-        [Environment]::SetEnvironmentVariable("BW_SESSION", $bwSession, "User")
-        $env:BW_SESSION = $bwSession
-        bw sync
-        Write-Host "[✓] Successfully initialized Bitwarden" -ForegroundColor Green
-    } catch {
-        Write-Host "[X] Failed to initialize Bitwarden: $($_.Exception.Message)" -ForegroundColor Red
+    }
+    
+    if (-not $success) {
+        Write-Host "`n[X] Maximum attempts reached. Failed to configure Bitwarden." -ForegroundColor Red
+        $continue = Read-Host "Continue with setup without Bitwarden? (y/n)"
+        if ($continue -ne "y") {
+            Write-Host "Exiting setup." -ForegroundColor Yellow
+            Read-Host -Prompt "Press Enter to exit"
+            exit 1
+        }
     }
 }
 
