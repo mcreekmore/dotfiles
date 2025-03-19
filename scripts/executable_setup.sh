@@ -37,9 +37,6 @@ done
 
 echo "All packages are installed!"
 
-# set zsh default shell
-sudo chsh -s $(which zsh)
-
 STATUS=$(bw status --raw)
 
 if echo "$STATUS" | grep -q "unauthenticated"; then
@@ -51,7 +48,6 @@ if echo "$STATUS" | grep -q "unauthenticated"; then
 elif echo "$STATUS" | grep -q "locked"; then
     echo "Bitwarden vault is locked. Please enter your master password to unlock:"
     BW_SESSION=$(bw unlock --raw)
-    # BW_SESSION=$(bw unlock --raw </dev/tty)
     export BW_SESSION="$BW_SESSION"
     echo "Successfully unlocked vault"
 else

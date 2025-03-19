@@ -18,6 +18,7 @@ packages:
       - tmux
       - zellij
       - zoxide
+      - zsh
       - zsh-autocomplete
       - zsh-syntax-highlighting
     casks:
