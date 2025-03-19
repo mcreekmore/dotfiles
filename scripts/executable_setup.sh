@@ -7,9 +7,9 @@ if ! type "brew" > /dev/null; then
   /bin/bash -c "$(curl -sfSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
   if [ "$OS_NAME" = "Darwin" ]; then
-    export PATH=$PATH:/usr/local/bin >> ~/.bashrc
+    export PATH=$PATH:/usr/local/bin
   elif [ "$OS_NAME" = "Linux" ]; then
-    export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin >> ~/.bashrc
+    export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
   else
     echo "Unsupported perating system"
     exit 1
@@ -18,7 +18,6 @@ else
   echo "Homebrew is already installed."
 fi
 
-source ~/.bashrc
 packages="chezmoi bitwarden-cli"
 
 for pkg in $packages; do
