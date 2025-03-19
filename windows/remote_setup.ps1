@@ -101,6 +101,7 @@ if (Get-Command bw -ErrorAction SilentlyContinue) {
         
         try {
             bw config server https://vault.creekmore.io
+            Write-Host
             $bwSession = bw login --raw
             
             if (-not $bwSession) {
