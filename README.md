@@ -4,10 +4,10 @@ managed by [chezmoi](https://www.chezmoi.io/)
 
 ### Windows
 ```
-irm https://creekmore.io/win | iex
+irm https://win.creekmore.io | iex
 ```
 
 ### Linux / OSX
 ```
-curl -sSfL https://creekmore.io/unix | sh
+curl -sSfL https://unix.creekmore.io | sh
 ```
