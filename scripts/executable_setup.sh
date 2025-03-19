@@ -37,6 +37,7 @@ echo "All packages are installed!"
 
 chezmoi init --apply https://github.com/mcreekmore/dotfiles.git
 
+$STATUS = bw status --raw
 if [ "$STATUS" = "unauthenticated" ]; then
     echo "Bitwarden Master Password:"
     BW_SESSION=$(bw login --raw </dev/tty)
