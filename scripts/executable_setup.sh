@@ -8,8 +8,10 @@ if ! type "brew" > /dev/null; then
 
   if [ "$OS_NAME" = "Darwin" ]; then
     PATH=$PATH:/usr/local/bin
+    export PATH=$PATH:/usr/local/bin
   elif [ "$OS_NAME" = "Linux" ]; then
     PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
+    export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
   else
     echo "Unsupported perating system"
     exit 1
@@ -32,7 +34,7 @@ done
 echo "All packages are installed!"
 
 # set zsh default shell
-sudo chsh -s $(which zsh)
+# sudo chsh -s $(which zsh)
 
 chezmoi init --apply https://github.com/mcreekmore/dotfiles.git
 
