@@ -9,5 +9,5 @@ irm https://creekmore.io/win | iex
 
 ### Linux / OSX
 ```bash
-curl -sSfL https://creekmore.io/setup.sh | sh
+curl -sSfL https://creekmore.io/unix | sh
 ```
