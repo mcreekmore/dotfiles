@@ -42,6 +42,6 @@ chezmoi init --apply https://github.com/mcreekmore/dotfiles.git
 
 # set up bitwarden
 bw config server https://vault.creekmore.io
-bw login
-export BW_SESSION=$(bw unlock --raw)
+echo "Bitwarden Master Password:"
+export BW_SESSION=$(bw login --raw)
 bw sync
