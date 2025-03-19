@@ -38,9 +38,10 @@ echo "All packages are installed!"
 sudo chsh -s $(which zsh)
 
 # set up dotfiles
-chezmoi init --apply --verbose https://github.com/mcreekmore/dotfiles.git
+chezmoi init --apply https://github.com/mcreekmore/dotfiles.git
 
 # set up bitwarden
 bw config server https://vault.creekmore.io
+bw login
 export BW_SESSION=$(bw unlock --raw)
 bw sync
