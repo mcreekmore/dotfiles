@@ -44,12 +44,14 @@ STATUS=$(bw status --raw)
 
 if echo "$STATUS" | grep -q "unauthenticated"; then
     echo "Bitwarden Master Password:"
-    BW_SESSION=$(bw login --raw </dev/tty)
+    bw config server https://vault.creekmore.io
+    BW_SESSION=$(bw login --raw)
     export BW_SESSION="$BW_SESSION"
     echo "Successfully logged in"
 elif echo "$STATUS" | grep -q "locked"; then
     echo "Bitwarden vault is locked. Please enter your master password to unlock:"
-    BW_SESSION=$(bw unlock --raw </dev/tty)
+    BW_SESSION=$(bw unlock --raw)
+    # BW_SESSION=$(bw unlock --raw </dev/tty)
     export BW_SESSION="$BW_SESSION"
     echo "Successfully unlocked vault"
 else
