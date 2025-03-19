@@ -38,7 +38,7 @@ done
 echo "All packages are installed!"
 
 # set zsh default shell
-# sudo chsh -s $(which zsh)
+sudo chsh -s $(which zsh)
 
 STATUS=$(bw status --raw)
 
