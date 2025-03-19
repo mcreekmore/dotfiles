@@ -1,11 +1,33 @@
 packages:
   homebrew:
     brews:
+      - ansible
+      - bitwarden-cli
+      - chezmoi
+      - fastfetch
+      - fzf
       - git
       - jq
+      - neovim
+      - node
+      - nvm
+      - pnpm
+      - ripgrep
+      - solidity
+      - starship
+      - tmux
+      - zellij
+      - zoxide
+      - zsh-autocomplete
+      - zsh-syntax-highlighting
     casks:
-      - google-chrome
       - bitwarden
+      - google-chrome
+      - hiddenbar
+      - keepassxc
+      - postman
+      - raycast
+      - wezterm
 
   windows:
     winget:
