@@ -37,7 +37,7 @@ done
 echo "All packages are installed!"
 
 # set zsh default shell
-# sudo chsh -s $(which zsh)
+sudo chsh -s $(which zsh)
 
 $OS_PATH/chezmoi init --apply https://github.com/mcreekmore/dotfiles.git
 
