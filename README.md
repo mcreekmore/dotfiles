@@ -3,7 +3,7 @@
 managed by [chezmoi](https://www.chezmoi.io/)
 
 ### Windows
-```powershell
+```bash
 irm https://creekmore.io/win | iex
 ```
 
