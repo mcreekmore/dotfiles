@@ -2,17 +2,10 @@
 #!/bin/bash
 
 brew bundle --file=/dev/stdin <<EOF
-{{ range .packages.all.brews -}}
+{{ range .packages.homebrew.brews -}}
 brew {{ . | quote }}
 {{ end -}}
-{{ range .packages.all.casks -}}
-cask {{ . | quote }}
-{{ end -}}
-
-{{ range .packages.linux.brews -}}
-brew {{ . | quote }}
-{{ end -}}
-{{ range .packages.linux.casks -}}
+{{ range .packages.homebrew.casks -}}
 cask {{ . | quote }}
 {{ end -}}
 EOF

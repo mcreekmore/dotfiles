@@ -1,0 +1,6 @@
+[hooks.read-source-state.pre]
+command = "sh"
+args = [
+  "-c",
+  "if [ -n \"$WINDIR\" ] || [ -n \"$SystemRoot\" ]; then powershell.exe -File \"$HOME/.local/share/chezmoi/.install-bitwarden.ps1\"; else \"$HOME/.local/share/chezmoi/.install-bitwarden.sh\"; fi",
+]

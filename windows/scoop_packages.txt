@@ -1,2 +1,0 @@
-nerd-fonts/Hack-NF-Mono
-anderlli0053_DEV-tools/slippi-launcher

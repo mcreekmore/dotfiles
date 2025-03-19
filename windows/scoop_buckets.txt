@@ -1,3 +1,0 @@
-extras
-nerd-fonts
-anderlli0053_DEV-tools https://github.com/anderlli0053/DEV-tools

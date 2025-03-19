@@ -1,20 +1,82 @@
 packages:
-  all:
+  homebrew:
     brews:
-      - "git"
-      - "jq"
+      - git
+      - jq
     casks:
-      - "google-chrome"
-
-  darwin:
-    brews:
-    casks:
-
-  linux:
-    brews:
-    casks:
+      - google-chrome
+      - bitwarden
 
   windows:
     winget:
+      - Hibbiki.Chromium
+      - ahmetb.kubectx
+      - ahmetb.kubens
+      - AntibodySoftware.WizTree
+      - AntoineAflalo.SoundSwitch
+      - Audacity.Audacity
+      - AutoHotkey.AutoHotkey
+      - Bitwarden.Bitwarden
+      - Bitwarden.CLI
+      - Brave.Brave
+      - CPUID.CPU-Z
+      - CPUID.HWMonitor
+      - direnv.direnv
+      - Discord.Discord
+      - Docker.DockerDesktop
+      - ElectronicArts.EADesktop
+      - Element.Element
+      - GIMP.GIMP
+      - Git.Git
+      - GOG.Galaxy
+      - Google.Chrome
+      - Google.ChromeRemoteDesktopHost
+      - Google.GoogleDrive
+      - Helm.Helm
+      - Hibbiki.Chromium
+      - KeePassXCTeam.KeePassXC
+      - Kubernetes.kubectl
+      - Malwarebytes.Malwarebytes
+      - Microsoft.PowerToys
+      - Microsoft.VisualStudioCode
+      - Microsoft.WindowsTerminal
+      - Mozilla.Firefox
+      - NexusMods.Vortex
+      - OBSProject.OBSStudio
+      - Obsidian.Obsidian
+      - OpenTofu.Tofu
+      - OpenWhisperSystems.Signal
+      - Parsec.Parsec
+      - Playnite.Playnite
+      - Plex.Plex
+      - Plex.Plexamp
+      - RealVNC.VNCViewer
+      - Rufus.Rufus
+      - RuneLite.RuneLite
+      - sharkdp.bat
+      - SlackTechnologies.Slack
+      - Spotify.Spotify
+      - Starship.Starship
+      - Tailscale.Tailscale
+      - TeamViewer.TeamViewer
+      - TechPowerUp.GPU-Z
+      - Telegram.TelegramDesktop
+      - Ubisoft.Connect
+      - Valve.Steam
+      - VideoLAN.VLC
+      - WinDirStat.WinDirStat
+      - WireGuard.WireGuard
+      - Zoom.Zoom
+      - gerardog.gsudo
+      - twpayne.chezmoi
+      - wez.wezterm
     scoop:
+      buckets:
+        - extras
+        - nerd-fonts
+      packages:
+        - nerd-fonts/Hack-NF-Mono
     choco:
+      # - bitwarden-cli
+      - directx
+      - winbtrfs
