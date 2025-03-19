@@ -1,6 +1,6 @@
 # dotfiles
 
-configuration managed by [chezmoi](https://www.chezmoi.io/)
+managed by [chezmoi](https://www.chezmoi.io/)
 
 ### Windows
 ```powershell

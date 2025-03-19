@@ -39,6 +39,21 @@ foreach ($package in $winget_packages) {
 
 Write-Host "`nWinget installation process completed" -ForegroundColor Cyan
 
+if (Get-Command rustc -ErrorAction SilentlyContinue) {
+    Write-Host "Rust is already installed." -ForegroundColor Yellow
+    rustc --version
+} else {
+    Write-Host "Installing Rust..." -ForegroundColor Cyan
+    Invoke-WebRequest -Uri https://win.rustup.rs/x86_64 -OutFile "$env:TEMP\rustup-init.exe"
+    Start-Process -FilePath "$env:TEMP\rustup-init.exe" -ArgumentList "-y", "--default-toolchain", "stable", "--profile", "minimal" -Wait
+    $env:Path = [System.Environment]::GetEnvironmentVariable("PATH", "User") + ";" + [System.Environment]::GetEnvironmentVariable("PATH", "Machine")
+    Remove-Item -Path "$env:TEMP\rustup-init.exe"
+    Write-Host "Rust installed successfully!" -ForegroundColor Green
+}
+
+rustc --version
+cargo --version
+
 # Check if Bitwarden is already installed
 if (Get-Command bw -ErrorAction SilentlyContinue) { 
     Write-Host "Bitwarden is already installed."
