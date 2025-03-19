@@ -24,7 +24,7 @@ fi
 
 which brew || { echo "Error: brew not in PATH"; exit 1; }
 
-packages="chezmoi bitwarden-cli"
+packages="chezmoi bitwarden-cli zsh"
 
 for pkg in $packages; do
   if ! brew list --versions "$pkg" >/dev/null 2>&1; then
