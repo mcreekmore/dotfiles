@@ -12,6 +12,7 @@ packages:
       - fastfetch
       - fzf
       - git
+      - golang
       - jq
       - neovim
       - node
@@ -106,6 +107,5 @@ packages:
       packages:
         - nerd-fonts/Hack-NF-Mono
     choco:
-      # - bitwarden-cli
       - directx
       - winbtrfs
