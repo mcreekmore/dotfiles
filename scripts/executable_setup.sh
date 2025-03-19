@@ -40,8 +40,6 @@ echo "All packages are installed!"
 # set zsh default shell
 # sudo chsh -s $(which zsh)
 
-chezmoi init --apply https://github.com/mcreekmore/dotfiles.git
-
 STATUS=$(bw status --raw)
 
 if echo "$STATUS" | grep -q "unauthenticated"; then
@@ -57,3 +55,5 @@ elif echo "$STATUS" | grep -q "locked"; then
 else
     echo "Already logged into Bitwarden"
 fi
+
+chezmoi init --apply https://github.com/mcreekmore/dotfiles.git
