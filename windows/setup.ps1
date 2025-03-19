@@ -11,6 +11,10 @@ Copy-Item $powershellProfilePath -Destination "$PROFILE"
 # Set timezone
 Set-TimeZone -Id "Eastern Standard Time"
 
+# Install prereqs
+winget install --id Git.Git
+winget install --id twpayne.chezmoi
+
 # Setup dotfiles
 Write-Host "`nStarting chezmoi dotfiles sync..." -ForegroundColor Cyan
 try {
