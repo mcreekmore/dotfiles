@@ -1,8 +1,13 @@
 packages:
+  apt:
+    - build-essentials
+    - curl
+
   homebrew:
     brews:
       - ansible
       - bitwarden-cli
+      - curl
       - chezmoi
       - fastfetch
       - fzf

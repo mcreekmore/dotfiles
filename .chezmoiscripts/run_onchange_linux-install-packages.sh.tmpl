@@ -2,6 +2,10 @@
 #!/bin/bash
 
 brew bundle --file=/dev/stdin <<EOF
+sudo apt-get update
+{{ range .packages.apt -}}
+sudo apt-get install {{ . | quote }}
+{{ end -}}
 {{ range .packages.homebrew.brews -}}
 brew {{ . | quote }}
 {{ end -}}
