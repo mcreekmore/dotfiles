@@ -4,55 +4,53 @@ if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
     exit 1
 }
 
-$winget_packages = @(
-    "Git.Git",
-    "twpayne.chezmoi"
-)
+# Git.Git package
+try {
+    $null = winget list --exact --id Git.Git --accept-source-agreements
+    $gitInstalled = $LASTEXITCODE -eq 0
+} catch {
+    $gitInstalled = $false
+}
 
-# Attempt installation
-foreach ($package in $winget_packages) {
-    # Check if package is already installed
+if ($gitInstalled) {
+    Write-Host "[✓] Git.Git is already installed" -ForegroundColor Green
+} else {
+    Write-Host "[...] Installing Git.Git" -ForegroundColor Cyan
     try {
-        $null = winget list --exact --id $package --accept-source-agreements
-        $installed = $LASTEXITCODE -eq 0
-    } catch {
-        $installed = $false
-    }
-
-    if ($installed) {
-        Write-Host "[✓] $package is already installed" -ForegroundColor Green
-        continue
-    }
-
-    # Attempt installation
-    Write-Host "[...] Installing $package" -ForegroundColor Cyan
-    try {
-        winget install --exact --id $package --silent --accept-package-agreements --accept-source-agreements
+        winget install --exact --id Git.Git --silent --accept-package-agreements --accept-source-agreements
         if ($LASTEXITCODE -ne 0) {
             throw "Exit code: $LASTEXITCODE"
         }
-        Write-Host "[✓] Successfully installed $package" -ForegroundColor Green
+        Write-Host "[✓] Successfully installed Git.Git" -ForegroundColor Green
     } catch {
-        Write-Host "[X] Failed to install $package ($($_.Exception.Message))" -ForegroundColor Red
+        Write-Host "[X] Failed to install Git.Git ($($_.Exception.Message))" -ForegroundColor Red
+    }
+}
+
+# twpayne.chezmoi package
+try {
+    $null = winget list --exact --id twpayne.chezmoi --accept-source-agreements
+    $chezmoiInstalled = $LASTEXITCODE -eq 0
+} catch {
+    $chezmoiInstalled = $false
+}
+
+if ($chezmoiInstalled) {
+    Write-Host "[✓] twpayne.chezmoi is already installed" -ForegroundColor Green
+} else {
+    Write-Host "[...] Installing twpayne.chezmoi" -ForegroundColor Cyan
+    try {
+        winget install --exact --id twpayne.chezmoi --silent --accept-package-agreements --accept-source-agreements
+        if ($LASTEXITCODE -ne 0) {
+            throw "Exit code: $LASTEXITCODE"
+        }
+        Write-Host "[✓] Successfully installed twpayne.chezmoi" -ForegroundColor Green
+    } catch {
+        Write-Host "[X] Failed to install twpayne.chezmoi ($($_.Exception.Message))" -ForegroundColor Red
     }
 }
 
 Write-Host "`nWinget installation process completed" -ForegroundColor Cyan
-
-if (Get-Command rustc -ErrorAction SilentlyContinue) {
-    Write-Host "Rust is already installed." -ForegroundColor Yellow
-    rustc --version
-} else {
-    Write-Host "Installing Rust..." -ForegroundColor Cyan
-    Invoke-WebRequest -Uri https://win.rustup.rs/x86_64 -OutFile "$env:TEMP\rustup-init.exe"
-    Start-Process -FilePath "$env:TEMP\rustup-init.exe" -ArgumentList "-y", "--default-toolchain", "stable", "--profile", "minimal" -Wait
-    $env:Path = [System.Environment]::GetEnvironmentVariable("PATH", "User") + ";" + [System.Environment]::GetEnvironmentVariable("PATH", "Machine")
-    Remove-Item -Path "$env:TEMP\rustup-init.exe"
-    Write-Host "Rust installed successfully!" -ForegroundColor Green
-}
-
-rustc --version
-cargo --version
 
 # Check if Bitwarden is already installed
 if (Get-Command bw -ErrorAction SilentlyContinue) { 
