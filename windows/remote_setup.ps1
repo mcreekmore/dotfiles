@@ -94,8 +94,7 @@ if (Get-Command bw -ErrorAction SilentlyContinue) {
     try {
         Write-Host "[...] Configuring Bitwarden" -ForegroundColor Cyan
         bw config server https://vault.creekmore.io
-        bw login
-        $bwSession = bw unlock --raw
+        $bwSession = bw login --raw
         if (-not $bwSession) {
             throw "Failed to unlock Bitwarden"
         }
