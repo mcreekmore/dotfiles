@@ -32,8 +32,8 @@ packages:
   windows:
     winget:
       - Hibbiki.Chromium
-      # - ahmetb.kubectx
-      # - ahmetb.kubens
+      - ahmetb.kubectx
+      - ahmetb.kubens
       # - AntibodySoftware.WizTree
       # - AntoineAflalo.SoundSwitch
       # - Audacity.Audacity
@@ -57,7 +57,7 @@ packages:
       # - Helm.Helm
       # - Hibbiki.Chromium
       # - KeePassXCTeam.KeePassXC
-      # - Kubernetes.kubectl
+      - Kubernetes.kubectl
       # - Malwarebytes.Malwarebytes
       # - Microsoft.PowerToys
       # - Microsoft.VisualStudioCode
