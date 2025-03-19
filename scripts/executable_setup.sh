@@ -7,9 +7,13 @@ if ! type "brew" > /dev/null; then
   /bin/bash -c "$(curl -sfSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
   if [ "$OS_NAME" = "Darwin" ]; then
-    export PATH=$PATH:/usr/local/bin
+    echo >> $HOME/.bashrc
+    echo 'eval "$(/usr/local/bin/brew shellenv)"' >> $HOME/.bashrc
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   elif [ "$OS_NAME" = "Linux" ]; then
-    export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
+    echo >> $HOME/.bashrc
+    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $HOME/.bashrc
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   else
     echo "Unsupported perating system"
     exit 1
