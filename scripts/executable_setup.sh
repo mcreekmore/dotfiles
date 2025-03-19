@@ -7,20 +7,22 @@ if ! type "brew" > /dev/null; then
   /bin/bash -c "$(curl -sfSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
   if [ "$OS_NAME" = "Darwin" ]; then
-    echo >> $HOME/.bashrc
-    echo 'eval "$(/usr/local/bin/brew shellenv)"' >> $HOME/.bashrc
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    BREW_PATH="/usr/local/bin/brew"
   elif [ "$OS_NAME" = "Linux" ]; then
-    echo >> $HOME/.bashrc
-    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $HOME/.bashrc
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    BREW_PATH="/home/linuxbrew/.linuxbrew/bin/brew"
   else
     echo "Unsupported perating system"
     exit 1
   fi
+
+    echo >> $HOME/.bashrc
+    echo 'eval "$('$BREW_PATH' shellenv)"' >> $HOME/.bashrc
+    eval "$($BREW_PATH shellenv)"
 else
   echo "Homebrew is already installed."
 fi
+
+which brew || { echo "Error: brew not in PATH"; exit 1; }
 
 packages="chezmoi bitwarden-cli"
 
