@@ -42,7 +42,7 @@ Write-Host "`nWinget installation process completed" -ForegroundColor Cyan
 # Setup dotfiles
 Write-Host "`nStarting chezmoi dotfiles sync..." -ForegroundColor Cyan
 try {
-    chezmoi init --apply --verbose https://github.com/mcreekmore/dotfiles.git
+    chezmoi init --apply https://github.com/mcreekmore/dotfiles.git
     Write-Host "[✓] Successfully initialized chezmoi" -ForegroundColor Green
 } catch {
     Write-Host "[X] Failed to initialize chezmoi: $($_.Exception.Message)" -ForegroundColor Red

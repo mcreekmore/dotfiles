@@ -23,7 +23,7 @@ packages:
       - CPUID.HWMonitor
       - direnv.direnv
       - Discord.Discord
-      - Docker.DockerDesktop
+      # - Docker.DockerDesktop
       - ElectronicArts.EADesktop
       - Element.Element
       - GIMP.GIMP
