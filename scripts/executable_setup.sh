@@ -24,11 +24,12 @@ fi
 
 which brew || { echo "Error: brew not in PATH"; exit 1; }
 
-packages="chezmoi bitwarden-cli zsh"
+packages="chezmoi bitwarden-cli"
 
 for pkg in $packages; do
   if ! brew list --versions "$pkg" >/dev/null 2>&1; then
     echo "Installing $pkg..."
+    export HOMEBREW_NO_ENV_HINTS=true
     brew install "$pkg" --quiet
   else
     echo "$pkg is already installed."
