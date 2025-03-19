@@ -13,5 +13,16 @@ if (Get-Command winget -ErrorAction SilentlyContinue) {
   exit 1
 }
 
+try {
+  bw config server https://vault.creekmore.io
+  bw login
+  [Environment]::SetEnvironmentVariable("BW_SESSION", (bw unlock --raw), "User")
+  $env:BW_SESSION = [Environment]::GetEnvironmentVariable("BW_SESSION", "User")
+  bw sync
+  Write-Host "`n[✓] Successfully initialized Bitwarden" -ForegroundColor Green
+} catch {
+  Write-Host "`n[X] Failed to initialize Bitwarden: $($_.Exception.Message)" -ForegroundColor Red
+}
+
 Write-Host "Bitwarden installation complete"
 exit 0
