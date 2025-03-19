@@ -5,7 +5,6 @@ packages:
 
   homebrew:
     brews:
-      - ansible
       - bitwarden-cli
       - curl
       - chezmoi
