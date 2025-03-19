@@ -1,7 +1,8 @@
 [hooks.read-source-state.pre]
 {{- if eq .chezmoi.os "windows" }}
     command = "powershell.exe"
-    args = ["-File", ".local/share/chezmoi/.install-bitwarden.ps1"]
+    args = ["-File", "{{ .chezmoi.sourceDir }}/.install-bitwarden.ps1"]
 {{- else }}
     command = ".local/share/chezmoi/.install-bitwarden.sh"
+    args = ["-c", "{{ .chezmoi.sourceDir }}/.install-bitwarden.sh"]
 {{- end }}
