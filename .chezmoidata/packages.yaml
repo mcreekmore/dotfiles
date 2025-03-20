@@ -43,7 +43,7 @@ packages:
       - ahmetb.kubens
       # - AntibodySoftware.WizTree
       # - AntoineAflalo.SoundSwitch
-      # - Audacity.Audacity
+      - Audacity.Audacity
       # - AutoHotkey.AutoHotkey
       # - Bitwarden.Bitwarden
       # - Bitwarden.CLI
@@ -56,7 +56,7 @@ packages:
       # - ElectronicArts.EADesktop
       # - Element.Element
       # - GIMP.GIMP
-      # - Git.Git
+      - Git.Git
       # - GOG.Galaxy
       # - Google.Chrome
       # - Google.ChromeRemoteDesktopHost

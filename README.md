@@ -9,5 +9,5 @@ irm https://win.creekmore.io | iex
 
 ### Linux / OSX
 ```bash
-/bin/bash -c "$(curl -sfSL https://unix.creekmore.io)"
+bash <(curl -sSL https://unix.creekmore.io)
 ```
