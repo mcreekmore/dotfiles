@@ -8,6 +8,6 @@ irm https://win.creekmore.io | iex
 ```
 
 ### Linux / OSX
-```
-curl -sSfL https://unix.creekmore.io | sh
+```bash
+bash <(curl -sSL https://unix.creekmore.io)
 ```

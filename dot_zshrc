@@ -87,24 +87,19 @@ alias ls="ls --color=auto"
 # keybinds
 bindkey "^[[1;5C" forward-word # ctrl + right arrow 
 bindkey "^[[1;5D" backward-word # ctrl + left arrow
+bindkey -s ^f "zellij-smart-sessionizer.sh^M" # ctrl + f
 
 path+=("$HOME/scripts")
 export PATH
 # export PATH="$HOME/dotfiles/scripts:$PATH"
 alias tms="$HOME/scripts/tmux-sessionizer.sh"
 alias zs="$HOME/scripts/zellij-smart-sessionizer.sh"
-# ctrl + f
-bindkey -s ^f "zellij-smart-sessionizer.sh^M"
 alias zms="$HOME/scripts/zellij-sessionizer.sh ~/code ~/.config"
 alias dlsc="$HOME/scripts/download-soundcloud.sh"
 alias c="clear"
 alias k="kubectl"
-alias kns="kubens"
 alias kctx="kubectx"
+alias kns="kubens"
 alias h="helm"
 alias t="tofu"
 alias cm="chezmoi"
-
-# zprof
-
-

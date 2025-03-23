@@ -1,12 +1,17 @@
 packages:
+  apt:
+    - build-essential
+    - curl
+
   homebrew:
     brews:
-      - ansible
       - bitwarden-cli
+      - curl
       - chezmoi
       - fastfetch
       - fzf
       - git
+      - golang
       - jq
       - neovim
       - node
@@ -18,7 +23,9 @@ packages:
       - tmux
       - zellij
       - zoxide
+      - zsh
       - zsh-autocomplete
+      - zsh-autosuggestions
       - zsh-syntax-highlighting
     casks:
       - bitwarden
@@ -36,7 +43,7 @@ packages:
       - ahmetb.kubens
       # - AntibodySoftware.WizTree
       # - AntoineAflalo.SoundSwitch
-      # - Audacity.Audacity
+      - Audacity.Audacity
       # - AutoHotkey.AutoHotkey
       # - Bitwarden.Bitwarden
       # - Bitwarden.CLI
@@ -49,7 +56,7 @@ packages:
       # - ElectronicArts.EADesktop
       # - Element.Element
       # - GIMP.GIMP
-      # - Git.Git
+      - Git.Git
       # - GOG.Galaxy
       # - Google.Chrome
       # - Google.ChromeRemoteDesktopHost
@@ -99,6 +106,5 @@ packages:
       packages:
         - nerd-fonts/Hack-NF-Mono
     choco:
-      # - bitwarden-cli
       - directx
       - winbtrfs
