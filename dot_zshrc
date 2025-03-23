@@ -61,7 +61,8 @@ export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 # pnpm
-export PNPM_HOME="/home/matt/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -75,7 +76,7 @@ if uname -r |grep -q 'microsoft' ; then
 fi
 
 # solana
-PATH="/home/matt/.local/share/solana/install/active_release/bin:$PATH"
+PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
 
 # shell integration
 eval "$(fzf --zsh)"
@@ -98,6 +99,8 @@ alias zms="$HOME/scripts/zellij-sessionizer.sh ~/code ~/.config"
 alias dlsc="$HOME/scripts/download-soundcloud.sh"
 alias c="clear"
 alias k="kubectl"
+alias kns="kubens"
+alias kctx="kubectx"
 alias h="helm"
 alias t="tofu"
 alias cm="chezmoi"
