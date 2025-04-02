@@ -1,14 +1,14 @@
 {{ if eq .chezmoi.os "windows" -}}
-  {{ range .packages.windows.winget -}}
+  {{ range .packages.winget -}}
   winget install --id={{ . | quote }} --silent
   {{ end -}}
-  {{ range .packages.windows.scoop.buckets -}}
+  {{ range .packages.scoop.buckets -}}
   scoop bucket add {{ . | quote }}
   {{ end -}}
-  {{ range .packages.windows.scoop.packages -}}
+  {{ range .packages.scoop.packages -}}
   scoop install {{ . | quote }}
   {{ end -}}
-  {{ range .packages.windows.choco -}}
+  {{ range .packages.choco -}}
   # choco install {{ . | quote }} -y
   $packageName = {{ . | quote }}
   if (!(choco list | findstr $PackageName)) {

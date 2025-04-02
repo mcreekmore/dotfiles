@@ -67,6 +67,7 @@ packages:
       - Kubernetes.kubectl
       # - Malwarebytes.Malwarebytes
       # - Microsoft.PowerToys
+      - Microsoft.PowerShell
       # - Microsoft.VisualStudioCode
       # - Microsoft.WindowsTerminal
       # - Mozilla.Firefox
