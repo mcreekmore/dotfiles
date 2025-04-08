@@ -1,4 +1,4 @@
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# eval "$(/opt/homebrew/bin/brew shellenv)"
 
 ##
 # Your previous /Users/matt/.zprofile file was backed up as /Users/matt/.zprofile.macports-saved_2024-01-11_at_18:20:27
