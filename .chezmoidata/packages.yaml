@@ -100,6 +100,7 @@ packages:
       # - gerardog.gsudo
       # - twpayne.chezmoi
       # - wez.wezterm
+      - WinSCP.WinSCP
     scoop:
       buckets:
         - extras
