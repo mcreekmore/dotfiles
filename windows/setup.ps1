@@ -41,5 +41,3 @@ if (Test-Path -Path $startupProgramsPath) {
     }
 }
 
-# Hardline terminal settings
-New-Item -ItemType HardLink -Path "C:\Users\matt\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" -Target "$HOME\windows\terminal\settings.json"

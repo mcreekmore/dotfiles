@@ -88,7 +88,7 @@ packages:
     # - Starship.Starship
     # - Tailscale.Tailscale
     # - TeamViewer.TeamViewer
-    # - TechPowerUp.GPU-Z
+    - TechPowerUp.GPU-Z
     # - Telegram.TelegramDesktop
     # - Ubisoft.Connect
     # - Valve.Steam
@@ -100,6 +100,7 @@ packages:
     # - twpayne.chezmoi
     # - wez.wezterm
     - WinSCP.WinSCP
+    # - Tailscale.Tailscale
   scoop:
     buckets:
       - extras
