@@ -52,8 +52,11 @@ if command -v zoxide > /dev/null 2>&1; then
 fi
 
 # golang
-if [[ ":$PATH:" != *":/usr/local/go/bin:"* ]]; then
-    export PATH=$PATH:/usr/local/go/bin
+if command -v go >/dev/null 2>&1; then
+    export GOROOT="$(brew --prefix go)/libexec"
+    export PATH="$GOROOT/bin:$PATH"
+    export GOPATH="$HOME/go"
+    export PATH="$GOPATH/bin:$PATH"
 fi
 
 # nvm
