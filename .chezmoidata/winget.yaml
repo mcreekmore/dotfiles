@@ -33,4 +33,13 @@ properties:
       settings:
         id: WinSCP.WinSCP
         source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      settings:
+        id: EpicGames.EpicGamesLauncher
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      settings:
+        id: Jellyfin.JellyfinMediaPlayer
+        source: winget
+
   configurationVersion: 0.2.0
