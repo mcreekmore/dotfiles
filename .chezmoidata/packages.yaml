@@ -5,6 +5,7 @@ packages:
 
   homebrew:
     brews:
+      - bat
       - bitwarden-cli
       - curl
       - chezmoi
@@ -21,6 +22,7 @@ packages:
       - ripgrep
       - solidity
       - starship
+      - sshs
       - talosctl
       - tmux
       - zellij
