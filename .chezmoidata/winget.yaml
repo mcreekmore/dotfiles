@@ -43,7 +43,7 @@ properties:
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       settings:
-        id: Yaak.app
+        id: Bruno.Bruno
         source: winget
 
   configurationVersion: 0.2.0
