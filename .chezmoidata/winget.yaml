@@ -45,5 +45,9 @@ properties:
       settings:
         id: Bruno.Bruno
         source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      settings:
+        id: Zen-Team.Zen-Browser
+        source: winget
 
   configurationVersion: 0.2.0
