@@ -49,5 +49,9 @@ properties:
       settings:
         id: Zen-Team.Zen-Browser
         source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      settings:
+        id: Ubiquiti.WiFimanDesktop
+        source: winget
 
   configurationVersion: 0.2.0
