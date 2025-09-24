@@ -53,5 +53,17 @@ properties:
       settings:
         id: Ubiquiti.WiFimanDesktop
         source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      settings:
+        id: Proton.ProtonDrive
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      settings:
+        id: Proton.ProtonMail
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      settings:
+        id: Proton.ProtonVPN
+        source: winget
 
   configurationVersion: 0.2.0
