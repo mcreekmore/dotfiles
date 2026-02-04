@@ -84,6 +84,9 @@ PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
 # shell integration
 eval "$(fzf --zsh)"
 
+# direnv
+eval "$(direnv hook zsh)"
+
 # ls colors
 alias ls="ls --color=auto"
 
@@ -106,3 +109,4 @@ alias kns="kubens"
 alias h="helm"
 alias t="tofu"
 alias cm="chezmoi"
+
