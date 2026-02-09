@@ -3,6 +3,9 @@ $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 # ENV
 [environment]::setEnvironmentVariable('EDITOR', 'code', 'User')
 [environment]::setEnvironmentVariable('STARSHIP_CONFIG', '${USERPROFILE}\.config\starship\starship.toml', 'User')
+[Environment]::SetEnvironmentVariable("DIRENV_CONFIG", "$env:APPDATA\direnv\conf", "User")
+[Environment]::SetEnvironmentVariable("XDG_CACHE_HOME", "$env:APPDATA\direnv\cache", "User")
+[Environment]::SetEnvironmentVariable("XDG_DATA_HOME", "$env:APPDATA\direnv\data", "User")
 
 # Copy powershell profile location
 $powershellProfilePath = Join-Path -Path $scriptDir -ChildPath ".\Microsoft.PowerShell_profile.ps1"

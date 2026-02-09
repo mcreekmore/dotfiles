@@ -1,4 +1,5 @@
 Invoke-Expression (&starship init powershell)
+Invoke-Expression "$(direnv hook pwsh)"
 
 Set-Alias c clear
 Set-Alias cm chezmoi

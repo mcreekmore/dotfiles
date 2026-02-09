@@ -16,6 +16,7 @@ ElectronicArts.EADesktop
 Element.Element
 GIMP.GIMP
 Git.Git
+GitHub.cli
 GOG.Galaxy
 Google.Chrome
 Google.ChromeRemoteDesktopHost
