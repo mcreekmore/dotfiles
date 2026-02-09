@@ -1,0 +1,3 @@
+﻿^RShift::
+WinMinimize, A
+return

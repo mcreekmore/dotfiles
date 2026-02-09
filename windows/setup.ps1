@@ -26,18 +26,36 @@ try {
 
 Write-Host "`nStarting AutoHotKey Shortcut Creation..." -ForegroundColor Cyan
 
-$startupProgramsPath = "$HOME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Minimize CTRL + F1.lnk"
-$targetScriptPath = Join-Path -Path $scriptDir -ChildPath "\ahk\Minimize CTRL + F1.ahk"
+$startupFolder = [Environment]::GetFolderPath("Startup")
+$cmStartup = Join-Path $scriptDir "startup"
 
-if (Test-Path -Path $startupProgramsPath) {
-    Write-Host "[✓] Symbolic link already exists at $startupProgramsPath" -ForegroundColor Green
-} else {
-    Write-Host "[...] Creating shortcut 'Minimize CTRL + F1.lnk'..." -ForegroundColor Cyan
-    try {
-        New-Item -ItemType SymbolicLink -Path $startupProgramsPath -Name "Minimize CTRL + F1.lnk" -Value $targetScriptPath -ErrorAction Stop
-        Write-Host "[✓] Successfully created startup shortcut" -ForegroundColor Green
-    } catch {
-        Write-Host "[X] Failed to create shortcut: $($_.Exception.Message)" -ForegroundColor Red
-    }
+if (-not (Test-Path $cmStartup)) {
+    Write-Host "[X] Startup folder not found at $cmStartup" -ForegroundColor Red
+    return
 }
 
+Write-Host "`nLinking AHK scripts to Startup..." -ForegroundColor Cyan
+
+$WshShell = New-Object -ComObject WScript.Shell
+
+Get-ChildItem -Path $cmStartup -File | ForEach-Object {
+
+    $targetPath = $_.FullName
+    $shortcutName = "$($_.BaseName).lnk"
+    $shortcutPath = Join-Path $startupFolder $shortcutName
+
+    if (Test-Path $shortcutPath) {
+        Write-Host "[✓] $shortcutName already exists" -ForegroundColor Green
+    } else {
+        try {
+            $shortcut = $WshShell.CreateShortcut($shortcutPath)
+            $shortcut.TargetPath = $targetPath
+            $shortcut.WorkingDirectory = $cmStartup
+            $shortcut.Save()
+
+            Write-Host "[✓] Created $shortcutName" -ForegroundColor Green
+        } catch {
+            Write-Host "[X] Failed to create $shortcutName : $($_.Exception.Message)" -ForegroundColor Red
+        }
+    }
+}
