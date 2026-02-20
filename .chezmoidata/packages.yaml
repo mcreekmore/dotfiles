@@ -21,6 +21,7 @@ packages:
       - ripgrep
       - solidity
       - starship
+      - talosctl
       - tmux
       - zellij
       - zoxide
