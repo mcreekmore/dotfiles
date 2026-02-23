@@ -23,6 +23,7 @@ packages:
       - ripgrep
       - solidity
       - starship
+      - sshpass
       - sshs
       - talosctl
       - tmux
