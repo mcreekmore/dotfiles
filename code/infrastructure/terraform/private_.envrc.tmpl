@@ -1,0 +1,9 @@
+export AWS_ACCESS_KEY_ID={{ (bitwardenFields "item" "backblaze.com").creekmore_tofu_state_key_id.value }}
+export AWS_SECRET_ACCESS_KEY={{ (bitwardenFields "item" "backblaze.com").creekmore_tofu_state_key_applicationKey.value }}
+
+export TF_VAR_cloudflare_api_token={{ (bitwardenFields "item" "cloudflare.com").terraform_zone_token.value }}
+export TF_VAR_cloudflare_zone_id={{ (bitwardenFields "item" "cloudflare.com").creekmore_io_zone_id.value }}
+
+export CLOUDFLARE_API_TOKEN={{ (bitwardenFields "item" "cloudflare.com").terraform_zone_token.value }}
+export CLOUDFLARE_ZONE_ID={{ (bitwardenFields "item" "cloudflare.com").creekmore_io_zone_id.value }}
+export CLOUDFLARE_ACCOUNT_ID={{ (bitwardenFields "item" "cloudflare.com").account_id.value }}
