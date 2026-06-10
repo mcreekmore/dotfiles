@@ -65,5 +65,13 @@ properties:
       settings:
         id: Proton.ProtonVPN
         source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      settings:
+        id: Anthropic.ClaudeCode
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      settings:
+        id: Ollama.Ollama
+        source: winget
 
   configurationVersion: 0.2.0

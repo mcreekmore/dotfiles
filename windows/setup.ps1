@@ -6,6 +6,7 @@ $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 [Environment]::SetEnvironmentVariable("DIRENV_CONFIG", "$env:APPDATA\direnv\conf", "User")
 [Environment]::SetEnvironmentVariable("XDG_CACHE_HOME", "$env:APPDATA\direnv\cache", "User")
 [Environment]::SetEnvironmentVariable("XDG_DATA_HOME", "$env:APPDATA\direnv\data", "User")
+[Environment]::SetEnvironmentVariable("OLLAMA_HOST", "0.0.0.0:11434", "User")
 
 # Copy powershell profile location
 $powershellProfilePath = Join-Path -Path $scriptDir -ChildPath ".\Microsoft.PowerShell_profile.ps1"
