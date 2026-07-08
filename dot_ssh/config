@@ -42,3 +42,7 @@ Host ub3
     HostName 10.0.20.13
     User matt
     IdentityFile ~/.ssh/id_ed25519
+Host mint
+    HostName 10.0.10.208
+    User matt
+    IdentityFile ~/.ssh/id_ed25519

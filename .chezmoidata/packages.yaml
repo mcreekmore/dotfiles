@@ -18,6 +18,8 @@ packages:
       - neovim
       - node
       - nvm
+      - ollama
+      - opencode
       - opentofu
       - pnpm
       - ripgrep

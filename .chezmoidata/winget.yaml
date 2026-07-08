@@ -73,5 +73,9 @@ properties:
       settings:
         id: Ollama.Ollama
         source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      settings:
+        id: SST.opencode
+        source: winget
 
   configurationVersion: 0.2.0
