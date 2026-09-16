@@ -14,12 +14,4 @@
   {{ range .packages.scoop.packages -}}
   scoop install {{ . | quote }}
   {{ end -}}
-  Sync-Env
-  {{ range .packages.choco -}}
-  # choco install {{ . | quote }} -y
-  $packageName = {{ . | quote }}
-  if (!(choco list | findstr $PackageName)) {
-    choco install $PackageName -y
-  }
-  {{ end -}}
 {{ end -}}

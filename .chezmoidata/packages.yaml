@@ -52,13 +52,14 @@ packages:
     - Audacity.Audacity
     - AutoHotkey.AutoHotkey
     - Bruno.Bruno
-    - Chocolatey.Chocolatey
     - Discord.Discord
     - EpicGames.EpicGamesLauncher
     - Git.Git
     - Hibbiki.Chromium
     - Jellyfin.JellyfinMediaPlayer
     - Kubernetes.kubectl
+    - maharmstone.btrfs
+    - Microsoft.DirectX
     - Microsoft.PowerShell
     - Mozilla.Firefox
     - Neovim.Neovim
@@ -126,6 +127,3 @@ packages:
       - nerd-fonts
     packages:
       - nerd-fonts/Hack-NF-Mono
-  choco:
-    - directx
-    - winbtrfs

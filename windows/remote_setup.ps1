@@ -1,14 +1,3 @@
-if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)) {
-    Write-Host "Restarting with administrator privileges..." -ForegroundColor Yellow
-    if ($PSCommandPath) {
-        Start-Process powershell -Verb RunAs -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`""
-    } else {
-        $remoteSetupUrl = "https://raw.githubusercontent.com/mcreekmore/dotfiles/main/windows/remote_setup.ps1"
-        Start-Process powershell -Verb RunAs -ArgumentList "-NoProfile -ExecutionPolicy Bypass -Command `"irm $remoteSetupUrl | iex`""
-    }
-    exit
-}
-
 $bwConfigServer = "https://vault.creekmore.io"
 $maxLoginAttempts = 3
 
