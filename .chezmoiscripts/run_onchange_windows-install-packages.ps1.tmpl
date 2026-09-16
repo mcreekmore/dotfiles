@@ -1,13 +1,20 @@
 {{ if eq .chezmoi.os "windows" -}}
+  function Sync-Env {
+    $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")
+    $env:PSModulePath = [System.Environment]::GetEnvironmentVariable("PSModulePath", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("PSModulePath", "User")
+  }
+  Sync-Env
   {{ range .packages.winget -}}
   winget install --id={{ . | quote }} --silent
   {{ end -}}
+  Sync-Env
   {{ range .packages.scoop.buckets -}}
   scoop bucket add {{ . | quote }}
   {{ end -}}
   {{ range .packages.scoop.packages -}}
   scoop install {{ . | quote }}
   {{ end -}}
+  Sync-Env
   {{ range .packages.choco -}}
   # choco install {{ . | quote }} -y
   $packageName = {{ . | quote }}

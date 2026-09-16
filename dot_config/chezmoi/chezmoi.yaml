@@ -1,5 +1,5 @@
-# bitwarden:
-#   unlock: true
-# windows:
-#   stripExtensions: false
-#   useBuiltinAutoTempalte: false
+bitwarden:
+  unlock: "auto"
+windows:
+  stripExtensions: false
+  useBuiltinAutoTempalte: false

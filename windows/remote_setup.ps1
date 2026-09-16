@@ -1,4 +1,15 @@
-$bwConfigServer = https://vault.creekmore.io
+if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)) {
+    Write-Host "Restarting with administrator privileges..." -ForegroundColor Yellow
+    if ($PSCommandPath) {
+        Start-Process powershell -Verb RunAs -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`""
+    } else {
+        $remoteSetupUrl = "https://raw.githubusercontent.com/mcreekmore/dotfiles/main/windows/remote_setup.ps1"
+        Start-Process powershell -Verb RunAs -ArgumentList "-NoProfile -ExecutionPolicy Bypass -Command `"irm $remoteSetupUrl | iex`""
+    }
+    exit
+}
+
+$bwConfigServer = "https://vault.creekmore.io"
 $maxLoginAttempts = 3
 
 # Check if Winget is available
@@ -58,6 +69,22 @@ if ($chezmoiInstalled) {
 
 Write-Host "`nWinget installation process completed" -ForegroundColor Cyan
 
+# Install scoop
+if (Get-Command scoop -ErrorAction SilentlyContinue) {
+    Write-Host "[✓] Scoop is already installed" -ForegroundColor Green
+} else {
+    Write-Host "[...] Installing Scoop" -ForegroundColor Cyan
+    try {
+        Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+        Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+        Write-Host "[✓] Successfully installed Scoop" -ForegroundColor Green
+        # Refresh PATH
+        $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")
+    } catch {
+        Write-Host "[X] Failed to install Scoop ($($_.Exception.Message))" -ForegroundColor Red
+    }
+}
+
 # Install and configure Bitwarden if needed
 try {
     $null = winget list --exact --id Bitwarden.CLI --accept-source-agreements
@@ -94,18 +121,29 @@ if ($bitwardenInstalled) {
 
 # Configure Bitwarden
 if (Get-Command bw -ErrorAction SilentlyContinue) {
+    bw config server $bwConfigServer
+
     $attempt = 0
     $success = $false
-    
+
     while (-not $success -and $attempt -lt $maxLoginAttempts) {
         $attempt++
         Write-Host "`n[...] Configuring Bitwarden (Attempt $attempt of $maxLoginAttempts)" -ForegroundColor Cyan
-        
+
         try {
-            bw config server $bwConfigServer
-            Write-Host
-            $bwSession = bw login --raw
-            
+            $bwStatus = (bw status | ConvertFrom-Json).status
+
+            if ($bwStatus -eq "unlocked") {
+                Write-Host "[✓] Bitwarden is already unlocked" -ForegroundColor Green
+                bw sync
+                $success = $true
+                continue
+            } elseif ($bwStatus -eq "locked") {
+                $bwSession = bw unlock --raw
+            } else {
+                $bwSession = bw login --raw
+            }
+
             if (-not $bwSession) {
                 Write-Host "[X] Failed to get valid session token. Please try again." -ForegroundColor Red
                 if ($attempt -lt $maxLoginAttempts) {
@@ -117,7 +155,7 @@ if (Get-Command bw -ErrorAction SilentlyContinue) {
                 }
                 continue
             }
-            
+
             # If we get here, we have a valid session
             [Environment]::SetEnvironmentVariable("BW_SESSION", $bwSession, "User")
             $env:BW_SESSION = $bwSession
@@ -126,7 +164,7 @@ if (Get-Command bw -ErrorAction SilentlyContinue) {
             $success = $true
         } catch {
             Write-Host "[X] Failed to initialize Bitwarden: $($_.Exception.Message)" -ForegroundColor Red
-            
+
             if ($attempt -lt $maxLoginAttempts) {
                 $retry = Read-Host "Press Enter to retry or type 'exit' to quit"
                 if ($retry -eq "exit") {
@@ -136,7 +174,7 @@ if (Get-Command bw -ErrorAction SilentlyContinue) {
             }
         }
     }
-    
+
     if (-not $success) {
         Write-Host "`n[X] Maximum attempts reached. Failed to configure Bitwarden." -ForegroundColor Red
         $continue = Read-Host "Continue with setup without Bitwarden? (y/n)"

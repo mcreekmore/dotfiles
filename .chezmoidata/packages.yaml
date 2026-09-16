@@ -7,8 +7,8 @@ packages:
     brews:
       - bat
       - bitwarden-cli
-      - curl
       - chezmoi
+      - curl
       - delve
       - fastfetch
       - fzf
@@ -24,9 +24,9 @@ packages:
       - pnpm
       - ripgrep
       - solidity
-      - starship
       - sshpass
       - sshs
+      - starship
       - talosctl
       - tmux
       - zellij
@@ -45,42 +45,60 @@ packages:
       - wezterm
 
   winget:
-    - Hibbiki.Chromium
     - ahmetb.kubectx
     - ahmetb.kubens
-    # - AntibodySoftware.WizTree
-    # - AntoineAflalo.SoundSwitch
+    - Anthropic.ClaudeCode
+    - AntoineAflalo.SoundSwitch
     - Audacity.Audacity
-    # - AutoHotkey.AutoHotkey
+    - AutoHotkey.AutoHotkey
+    - Bruno.Bruno
+    - Chocolatey.Chocolatey
+    - Discord.Discord
+    - EpicGames.EpicGamesLauncher
+    - Git.Git
+    - Hibbiki.Chromium
+    - Jellyfin.JellyfinMediaPlayer
+    - Kubernetes.kubectl
+    - Microsoft.PowerShell
+    - Mozilla.Firefox
+    - Neovim.Neovim
+    - Ollama.Ollama
+    - Proton.ProtonDrive
+    - Proton.ProtonMail
+    - Proton.ProtonVPN
+    - Spotify.Spotify
+    - SST.opencode
+    - Tailscale.Tailscale
+    - TechPowerUp.GPU-Z
+    - Ubiquiti.WiFimanDesktop
+    - Valve.Steam
+    - WinSCP.WinSCP
+    - Zen-Team.Zen-Browser
+    # - AntibodySoftware.WizTree
     # - Bitwarden.Bitwarden
     # - Bitwarden.CLI
     # - Brave.Brave
     # - CPUID.CPU-Z
     # - CPUID.HWMonitor
     # - direnv.direnv
-    # - Discord.Discord
-    # # - Docker.DockerDesktop
+    # - Docker.DockerDesktop
     # - ElectronicArts.EADesktop
     # - Element.Element
+    # - gerardog.gsudo
     # - GIMP.GIMP
-    - Git.Git
     # - GOG.Galaxy
     # - Google.Chrome
     # - Google.ChromeRemoteDesktopHost
     # - Google.GoogleDrive
     # - Helm.Helm
-    # - Hibbiki.Chromium
     # - KeePassXCTeam.KeePassXC
-    - Kubernetes.kubectl
     # - Malwarebytes.Malwarebytes
     # - Microsoft.PowerToys
-    - Microsoft.PowerShell
     # - Microsoft.VisualStudioCode
     # - Microsoft.WindowsTerminal
-    # - Mozilla.Firefox
     # - NexusMods.Vortex
-    # - OBSProject.OBSStudio
     # - Obsidian.Obsidian
+    # - OBSProject.OBSStudio
     # - OpenTofu.Tofu
     # - OpenWhisperSystems.Signal
     # - Parsec.Parsec
@@ -92,23 +110,16 @@ packages:
     # - RuneLite.RuneLite
     # - sharkdp.bat
     # - SlackTechnologies.Slack
-    # - Spotify.Spotify
     # - Starship.Starship
-    # - Tailscale.Tailscale
     # - TeamViewer.TeamViewer
-    - TechPowerUp.GPU-Z
     # - Telegram.TelegramDesktop
+    # - twpayne.chezmoi
     # - Ubisoft.Connect
-    # - Valve.Steam
     # - VideoLAN.VLC
+    # - wez.wezterm
     # - WinDirStat.WinDirStat
     # - WireGuard.WireGuard
     # - Zoom.Zoom
-    # - gerardog.gsudo
-    # - twpayne.chezmoi
-    # - wez.wezterm
-    - WinSCP.WinSCP
-    # - Tailscale.Tailscale
   scoop:
     buckets:
       - extras
