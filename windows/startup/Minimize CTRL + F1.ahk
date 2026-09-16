@@ -1,3 +1,1 @@
-﻿^F1::
-WinMinimize, A
-return
+﻿^F1::WinMinimize("A")

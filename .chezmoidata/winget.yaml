@@ -77,5 +77,42 @@ properties:
       settings:
         id: SST.opencode
         source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      settings:
+        id: Valve.Steam
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      settings:
+        id: Zen-Team.Zen-Browser
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      settings:
+        id: Discord.Discord
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      settings:
+        id: Spotify.Spotify
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      settings:
+        id: AutoHotkey.AutoHotkey
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      settings:
+        id: AntoineAflalo.SoundSwitch
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      settings:
+        id: Mozilla.Firefox
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      settings:
+        id: Tailscale.Tailscale
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      settings:
+        id: Neovim.Neovim
+        version: 0.12.5
+        source: winget
 
   configurationVersion: 0.2.0

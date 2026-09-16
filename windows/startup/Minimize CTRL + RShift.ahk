@@ -1,3 +1,1 @@
-﻿^RShift::
-WinMinimize, A
-return
+﻿^RShift::WinMinimize("A")
