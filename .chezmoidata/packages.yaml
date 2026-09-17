@@ -52,6 +52,8 @@ packages:
     - Audacity.Audacity
     - AutoHotkey.AutoHotkey
     - Bruno.Bruno
+    - CrystalDewWorld.CrystalDiskMark
+    - direnv.direnv
     - Discord.Discord
     - EpicGames.EpicGamesLauncher
     - Git.Git
@@ -63,14 +65,18 @@ packages:
     - Microsoft.PowerShell
     - Mozilla.Firefox
     - Neovim.Neovim
+    - Obsidian.Obsidian
     - Ollama.Ollama
     - Proton.ProtonDrive
     - Proton.ProtonMail
     - Proton.ProtonVPN
+    - Python.Python.3.9
     - Spotify.Spotify
     - SST.opencode
+    - Starship.Starship
     - Tailscale.Tailscale
     - TechPowerUp.GPU-Z
+    - Telegram.TelegramDesktop
     - Ubiquiti.WiFimanDesktop
     - Valve.Steam
     - WinSCP.WinSCP
