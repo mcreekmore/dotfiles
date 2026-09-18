@@ -1,4 +1,3 @@
-$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $bwConfigServer = "https://vault.creekmore.io"
 $maxLoginAttempts = 3
 
@@ -16,10 +15,6 @@ if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
 [Environment]::SetEnvironmentVariable("XDG_CACHE_HOME", "$env:APPDATA\direnv\cache", "User")
 [Environment]::SetEnvironmentVariable("XDG_DATA_HOME", "$env:APPDATA\direnv\data", "User")
 [Environment]::SetEnvironmentVariable("OLLAMA_HOST", "0.0.0.0:11434", "User")
-
-# Copy powershell profile location
-$powershellProfilePath = Join-Path -Path $scriptDir -ChildPath ".\Microsoft.PowerShell_profile.ps1"
-Copy-Item $powershellProfilePath -Destination "$PROFILE"
 
 # Set timezone
 Set-TimeZone -Id "Eastern Standard Time"
@@ -156,10 +151,21 @@ try {
     Write-Host "[X] Failed to initialize chezmoi: $($_.Exception.Message)" -ForegroundColor Red
 }
 
+# chezmoi apply lands the windows/ folder at $env:USERPROFILE\windows
+$appliedWindowsDir = Join-Path $env:USERPROFILE "windows"
+
+# Copy powershell profile
+$powershellProfilePath = Join-Path $appliedWindowsDir "Microsoft.PowerShell_profile.ps1"
+if (Test-Path $powershellProfilePath) {
+    Copy-Item $powershellProfilePath -Destination "$PROFILE"
+} else {
+    Write-Host "[X] PowerShell profile not found at $powershellProfilePath" -ForegroundColor Red
+}
+
 Write-Host "`nStarting AutoHotKey Shortcut Creation..." -ForegroundColor Cyan
 
 $startupFolder = [Environment]::GetFolderPath("Startup")
-$cmStartup = Join-Path $scriptDir "startup"
+$cmStartup = Join-Path $appliedWindowsDir "startup"
 
 if (-not (Test-Path $cmStartup)) {
     Write-Host "[X] Startup folder not found at $cmStartup" -ForegroundColor Red
