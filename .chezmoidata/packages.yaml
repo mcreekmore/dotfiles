@@ -45,17 +45,24 @@ packages:
       - wezterm
 
   winget:
+    - 7zip.7zip
     - ahmetb.kubectx
     - ahmetb.kubens
     - Anthropic.ClaudeCode
     - AntoineAflalo.SoundSwitch
     - Audacity.Audacity
     - AutoHotkey.AutoHotkey
+    - Bitwarden.CLI
+    - Bitwarden.Bitwarden
+    - Blizzard.BattleNet
     - Bruno.Bruno
     - CrystalDewWorld.CrystalDiskMark
     - direnv.direnv
     - Discord.Discord
     - EpicGames.EpicGamesLauncher
+    - eloston.ungoogled-chromium
+    - eza-community.eza
+    - Google.Chrome
     - Git.Git
     - Hibbiki.Chromium
     - Jellyfin.JellyfinMediaPlayer
@@ -67,6 +74,9 @@ packages:
     - Neovim.Neovim
     - Obsidian.Obsidian
     - Ollama.Ollama
+    - OpenWhisperSystems.Signal
+    # - Overwolf.CurseForge # this version is too oldls
+    - Plex.Plex
     - Proton.ProtonDrive
     - Proton.ProtonMail
     - Proton.ProtonVPN
@@ -94,7 +104,6 @@ packages:
     # - gerardog.gsudo
     # - GIMP.GIMP
     # - GOG.Galaxy
-    # - Google.Chrome
     # - Google.ChromeRemoteDesktopHost
     # - Google.GoogleDrive
     # - Helm.Helm

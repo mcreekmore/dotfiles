@@ -5,7 +5,11 @@
   }
   Sync-Env
   {{ range .packages.winget -}}
+  {{ if eq . "Blizzard.BattleNet" -}}
+  winget install --id={{ . | quote }} --silent --location "C:\Program Files (x86)\Battle.net"
+  {{ else -}}
   winget install --id={{ . | quote }} --silent
+  {{ end -}}
   {{ end -}}
   Sync-Env
   {{ range .packages.scoop.buckets -}}
