@@ -101,14 +101,14 @@ packages:
     # - AntibodySoftware.WizTree
     # - ElectronicArts.EADesktop
     # - Element.Element
-    # - gerardog.gsudo
+    - gerardog.gsudo
     - GIMP.GIMP
     # - Google.ChromeRemoteDesktopHost
     # - Google.GoogleDrive
     # - Helm.Helm
     - Malwarebytes.Malwarebytes
     - Microsoft.PowerToys
-    # - Microsoft.VisualStudioCode
+    - Microsoft.VisualStudioCode
     # - Microsoft.WindowsTerminal
     - NexusMods.Vortex
     - OBSProject.OBSStudio
@@ -126,6 +126,7 @@ packages:
     # - wez.wezterm
     - WireGuard.WireGuard
     - AntibodySoftware.WizTree
+    - Nextcloud.NextcloudDesktop
   scoop:
     buckets:
       - extras
