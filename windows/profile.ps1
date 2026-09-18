@@ -1,6 +1,4 @@
 Invoke-Expression (&starship init powershell)
-
-$Env:HOME = $HOME
 Invoke-Expression "$(direnv hook pwsh)"
 
 Set-Alias c clear

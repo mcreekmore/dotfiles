@@ -1,0 +1,8 @@
+{{- if eq .chezmoi.os "windows" }}
+sourceDir: "{{ .chezmoi.homeDir }}/.local/share/chezmoi"
+{{- end }}
+bitwarden:
+  unlock: "auto"
+windows:
+  stripExtensions: false
+  useBuiltinAutoTempalte: false

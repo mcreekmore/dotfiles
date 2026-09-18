@@ -32,7 +32,7 @@
     "centerOnLaunch": true,
     "copyFormatting": "none",
     "copyOnSelect": false,
-    "defaultProfile": "{75def201-4efb-5e32-93a0-c5647120c025}",
+    "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
     "initialRows": 40,
     "keybindings": 
     [
@@ -217,5 +217,5 @@
             }
         }
     ],
-    "useAcrylicInTabRow": false
+    "useAcrylicInTabRow": true
 }

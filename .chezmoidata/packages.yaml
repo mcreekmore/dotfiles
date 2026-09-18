@@ -55,17 +55,23 @@ packages:
     - Bitwarden.CLI
     - Bitwarden.Bitwarden
     - Blizzard.BattleNet
+    - Brave.Brave
     - Bruno.Bruno
+    - CPUID.CPU-Z
+    - CPUID.HWMonitor
     - CrystalDewWorld.CrystalDiskMark
     - direnv.direnv
+    - Docker.DockerDesktop
     - Discord.Discord
     - EpicGames.EpicGamesLauncher
     - eloston.ungoogled-chromium
     - eza-community.eza
     - Google.Chrome
+    - GOG.Galaxy
     - Git.Git
     - Hibbiki.Chromium
     - Jellyfin.JellyfinMediaPlayer
+    - KeePassXCTeam.KeePassXC
     - Kubernetes.kubectl
     - maharmstone.btrfs
     - Microsoft.DirectX
@@ -75,8 +81,9 @@ packages:
     - Obsidian.Obsidian
     - Ollama.Ollama
     - OpenWhisperSystems.Signal
-    # - Overwolf.CurseForge # this version is too oldls
+    # - Overwolf.CurseForge # this version is too old
     - Plex.Plex
+    - Plex.Plexamp
     - Proton.ProtonDrive
     - Proton.ProtonMail
     - Proton.ProtonVPN
@@ -92,50 +99,33 @@ packages:
     - WinSCP.WinSCP
     - Zen-Team.Zen-Browser
     # - AntibodySoftware.WizTree
-    # - Bitwarden.Bitwarden
-    # - Bitwarden.CLI
-    # - Brave.Brave
-    # - CPUID.CPU-Z
-    # - CPUID.HWMonitor
-    # - direnv.direnv
-    # - Docker.DockerDesktop
     # - ElectronicArts.EADesktop
     # - Element.Element
     # - gerardog.gsudo
-    # - GIMP.GIMP
-    # - GOG.Galaxy
+    - GIMP.GIMP
     # - Google.ChromeRemoteDesktopHost
     # - Google.GoogleDrive
     # - Helm.Helm
-    # - KeePassXCTeam.KeePassXC
-    # - Malwarebytes.Malwarebytes
-    # - Microsoft.PowerToys
+    - Malwarebytes.Malwarebytes
+    - Microsoft.PowerToys
     # - Microsoft.VisualStudioCode
     # - Microsoft.WindowsTerminal
-    # - NexusMods.Vortex
-    # - Obsidian.Obsidian
-    # - OBSProject.OBSStudio
-    # - OpenTofu.Tofu
-    # - OpenWhisperSystems.Signal
-    # - Parsec.Parsec
+    - NexusMods.Vortex
+    - OBSProject.OBSStudio
+    - OpenTofu.Tofu
+    - Parsec.Parsec
     # - Playnite.Playnite
-    # - Plex.Plex
-    # - Plex.Plexamp
-    # - RealVNC.VNCViewer
-    # - Rufus.Rufus
+    - RealVNC.VNCViewer
+    - Rufus.Rufus
     # - RuneLite.RuneLite
-    # - sharkdp.bat
-    # - SlackTechnologies.Slack
-    # - Starship.Starship
-    # - TeamViewer.TeamViewer
-    # - Telegram.TelegramDesktop
-    # - twpayne.chezmoi
+    - sharkdp.bat
+    - TeamViewer.TeamViewer
+    - twpayne.chezmoi
     # - Ubisoft.Connect
-    # - VideoLAN.VLC
+    - VideoLAN.VLC
     # - wez.wezterm
-    # - WinDirStat.WinDirStat
-    # - WireGuard.WireGuard
-    # - Zoom.Zoom
+    - WireGuard.WireGuard
+    - AntibodySoftware.WizTree
   scoop:
     buckets:
       - extras

@@ -1,5 +1,0 @@
-bitwarden:
-  unlock: "auto"
-windows:
-  stripExtensions: false
-  useBuiltinAutoTempalte: false
