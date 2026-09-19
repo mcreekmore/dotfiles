@@ -14,6 +14,7 @@ if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
 [Environment]::SetEnvironmentVariable("DIRENV_CONFIG", "$env:APPDATA\direnv\conf", "User")
 [Environment]::SetEnvironmentVariable("XDG_CACHE_HOME", "$env:APPDATA\direnv\cache", "User")
 [Environment]::SetEnvironmentVariable("XDG_DATA_HOME", "$env:APPDATA\direnv\data", "User")
+[Environment]::SetEnvironmentVariable("XDG_CONFIG_HOME", "${env:USERPROFILE}\.config", "User")
 [Environment]::SetEnvironmentVariable("OLLAMA_HOST", "0.0.0.0:11434", "User")
 
 # Set timezone
