@@ -1,0 +1,4 @@
+# Git repos to clone into ~/code on machine setup.
+# One per line: <directory name> <clone url>
+arbiter git@github.com:mcreekmore/arbiter.git
+infrastructure git@github.com:mcreekmore/infrastructure.git

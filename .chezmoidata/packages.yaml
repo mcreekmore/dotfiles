@@ -59,6 +59,7 @@ packages:
       args: --location "C:\Program Files (x86)\Battle.net"
     - Brave.Brave
     - Bruno.Bruno
+    - BurntSushi.ripgrep.GNU
     - CPUID.CPU-Z
     - CPUID.HWMonitor
     - CrystalDewWorld.CrystalDiskMark
@@ -122,7 +123,7 @@ packages:
     - OpenTofu.Tofu
     - Parsec.Parsec
     # - Playnite.Playnite
-    - RealVNC.VNCViewer
+    # - RealVNC.VNCViewer
     - Rufus.Rufus
     # - RuneLite.RuneLite
     - sharkdp.bat
