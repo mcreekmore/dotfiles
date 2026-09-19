@@ -20,8 +20,6 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope-ui-select.nvim" },
-	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
-	{ src = "https://github.com/rachartier/tiny-devicons-auto-colors.nvim" },
 })
 
 require("telescope").setup({
@@ -37,9 +35,6 @@ require("telescope").setup({
 		},
 	},
 })
-
--- Sync devicon colors with the active theme.
-require("tiny-devicons-auto-colors").setup()
 
 -- Load extensions if available.
 pcall(require("telescope").load_extension, "fzf")

@@ -11,7 +11,7 @@ vim.pack.add({
 -- Diagnostics UI
 vim.diagnostic.config({
 	severity_sort = true,
-	float = { border = "rounded", source = "if_many" },
+	float = { source = "if_many" },
 	underline = true,
 	virtual_text = { source = "if_many", spacing = 2 },
 })
@@ -30,9 +30,9 @@ vim.lsp.config("lua_ls", {
 	},
 })
 
--- Buffer-local keymaps when a server attaches. Neovim 0.11 already provides
--- defaults (K hover, grn rename, gra code action, grr refs, gri impl, gO
--- symbols); below we add the Telescope-powered pickers and a couple of extras.
+-- Buffer-local keymaps when a server attaches. Neovim provides the defaults
+-- (K hover, grn rename, gra code action, grx codelens, <C-s> signature help);
+-- below, the list-style ones (grr/gri/grt/gO) are swapped for Telescope pickers.
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
 	callback = function(event)
@@ -42,14 +42,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end
 
 		map("gd", builtin.lsp_definitions, "[G]oto [D]efinition")
-		map("gr", builtin.lsp_references, "[G]oto [R]eferences")
-		map("gI", builtin.lsp_implementations, "[G]oto [I]mplementation")
-		map("<leader>D", builtin.lsp_type_definitions, "Type [D]efinition")
-		map("<leader>ds", builtin.lsp_document_symbols, "[D]ocument [S]ymbols")
-		map("<leader>ws", builtin.lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
-		map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-		map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 		map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+		map("grr", builtin.lsp_references, "[R]eferences")
+		map("gri", builtin.lsp_implementations, "[I]mplementation")
+		map("grt", builtin.lsp_type_definitions, "[T]ype definition")
+		map("gO", builtin.lsp_document_symbols, "D[O]cument symbols")
+		map("<leader>ws", builtin.lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 
 		local client = vim.lsp.get_client_by_id(event.data.client_id)
 
@@ -77,12 +75,33 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
--- Install & enable servers/tools via mason.
+-- Install & enable servers/tools via mason. mason-tool-installer owns the full
+-- list (it accepts lspconfig names) and, unlike mason-lspconfig, keeps them
+-- updated: auto_update checks for new versions in the background on startup.
 require("mason").setup()
 require("mason-lspconfig").setup({
-	ensure_installed = { "lua_ls", "rust_analyzer", "ts_ls", "marksman" },
-	automatic_enable = true, -- calls vim.lsp.enable for each installed server
+	-- Calls vim.lsp.enable for each installed server. stylua ships an LSP mode,
+	-- but conform already formats with it, so don't also run it as a server.
+	automatic_enable = { exclude = { "stylua" } },
 })
 require("mason-tool-installer").setup({
-	ensure_installed = { "stylua", "js-debug-adapter" },
+	ensure_installed = {
+		-- LSP servers
+		"astro",
+		"clangd",
+		"cssls",
+		"denols",
+		"gopls",
+		"html",
+		"lua_ls",
+		"marksman",
+		"rust_analyzer",
+		"ts_ls",
+		-- Formatters / debuggers
+		"prettier",
+		"shfmt",
+		"stylua",
+		"js-debug-adapter",
+	},
+	auto_update = true,
 })

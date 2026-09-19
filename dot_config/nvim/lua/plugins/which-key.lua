@@ -4,11 +4,9 @@ vim.pack.add({ { src = "https://github.com/folke/which-key.nvim" } })
 require("which-key").setup()
 
 require("which-key").add({
-	{ "<leader>c", group = "[C]ode" },
-	{ "<leader>d", group = "[D]ocument / [D]iagnostics" },
 	{ "<leader>g", group = "[G]it" },
-	{ "<leader>r", group = "[R]ename" },
 	{ "<leader>s", group = "[S]earch" },
 	{ "<leader>t", group = "[T]oggle" },
 	{ "<leader>w", group = "[W]orkspace" },
+	{ "gr", group = "LSP" },
 })

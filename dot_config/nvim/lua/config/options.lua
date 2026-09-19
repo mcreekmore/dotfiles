@@ -44,6 +44,9 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 -- Preview substitutions live, as you type!
 vim.o.inccommand = "split"
 
+-- Default border for all floating windows (hover, diagnostics, completion, …)
+vim.o.winborder = "rounded"
+
 -- Show which line your cursor is on
 vim.o.cursorline = true
 

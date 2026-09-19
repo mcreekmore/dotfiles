@@ -88,10 +88,6 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
       "version": "'main'"
     },
-    "nvim-web-devicons": {
-      "rev": "914decffe650296c87312c53b7933ecb86718499",
-      "src": "https://github.com/nvim-tree/nvim-web-devicons"
-    },
     "oil.nvim": {
       "rev": "b73018b75affd13fa38e2fc94ef753b465f770d7",
       "src": "https://github.com/stevearc/oil.nvim"
@@ -116,10 +112,6 @@
       "rev": "5255aa27c422de944791318024167ad5d40aad20",
       "src": "https://github.com/nvim-telescope/telescope.nvim",
       "version": "0.2.0 - 0.3.0"
-    },
-    "tiny-devicons-auto-colors.nvim": {
-      "rev": "3b0c0174f4ed9120b6bea00d77e179ed5c46dcfb",
-      "src": "https://github.com/rachartier/tiny-devicons-auto-colors.nvim"
     },
     "todo-comments.nvim": {
       "rev": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668",
