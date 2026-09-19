@@ -18,10 +18,12 @@ local ensure_installed = {
 	"markdown_inline",
 	"python",
 	"rust",
+	"toml",
 	"tsx",
 	"typescript",
 	"vim",
 	"vimdoc",
+	"yaml",
 }
 
 -- Installs any missing parsers (no-op for already-installed ones).

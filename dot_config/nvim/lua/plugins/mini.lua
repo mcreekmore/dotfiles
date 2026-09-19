@@ -1,5 +1,5 @@
 -- Collection of small independent modules.
-vim.pack.add({ { src = "https://github.com/echasnovski/mini.nvim" } })
+vim.pack.add({ { src = "https://github.com/nvim-mini/mini.nvim" } })
 
 -- Better Around/Inside textobjects (e.g. va), yinq, ci')
 require("mini.ai").setup({ n_lines = 500 })

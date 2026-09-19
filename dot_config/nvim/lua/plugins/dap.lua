@@ -3,7 +3,6 @@ vim.pack.add({
 	{ src = "https://github.com/mfussenegger/nvim-dap" },
 	{ src = "https://github.com/rcarriga/nvim-dap-ui" },
 	{ src = "https://github.com/nvim-neotest/nvim-nio" },
-	{ src = "https://github.com/mxsdev/nvim-dap-vscode-js" },
 })
 
 local dap = require("dap")
@@ -25,9 +24,12 @@ vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint, { desc = "Debug: Toggle 
 vim.keymap.set("n", "<leader>tu", dapui.toggle, { desc = "[T]oggle debug [U]I" })
 
 -- JS/TS adapter.
-require("dap-vscode-js").setup({
-	adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
-})
+dap.adapters["pwa-node"] = {
+	type = "server",
+	host = "localhost",
+	port = "${port}",
+	executable = { command = "js-debug-adapter", args = { "${port}" } },
+}
 
 for _, language in ipairs({ "typescript", "javascript" }) do
 	dap.configurations[language] = {

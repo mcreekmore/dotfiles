@@ -84,5 +84,5 @@ require("mason-lspconfig").setup({
 	automatic_enable = true, -- calls vim.lsp.enable for each installed server
 })
 require("mason-tool-installer").setup({
-	ensure_installed = { "stylua" },
+	ensure_installed = { "stylua", "js-debug-adapter" },
 })

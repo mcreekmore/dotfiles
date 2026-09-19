@@ -7,4 +7,5 @@ require("render-markdown").setup({
 		position = "left",
 		style = "full",
 	},
+	latex = { enabled = false },
 })
