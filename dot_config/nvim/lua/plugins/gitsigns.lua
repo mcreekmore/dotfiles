@@ -1,15 +1,15 @@
-return { -- Adds git related signs to the gutter, as well as utilities for managing changes
-	"lewis6991/gitsigns.nvim",
-	opts = {
-		signs = {
-			add = { text = "+" },
-			change = { text = "~" },
-			delete = { text = "_" },
-			topdelete = { text = "‾" },
-			changedelete = { text = "~" },
-		},
-	},
+-- Git signs in the gutter + hunk utilities.
+vim.pack.add({ { src = "https://github.com/lewis6991/gitsigns.nvim" } })
 
-	vim.keymap.set("n", "<leader>gh", ":Gitsigns preview_hunk<CR>", {}),
-	vim.keymap.set("n", "<leader>gi", ":Gitsigns preview_hunk_inline<CR>", {}),
-}
+require("gitsigns").setup({
+	signs = {
+		add = { text = "+" },
+		change = { text = "~" },
+		delete = { text = "_" },
+		topdelete = { text = "‾" },
+		changedelete = { text = "~" },
+	},
+})
+
+vim.keymap.set("n", "<leader>gh", "<cmd>Gitsigns preview_hunk<CR>", { desc = "Preview git [H]unk" })
+vim.keymap.set("n", "<leader>gi", "<cmd>Gitsigns preview_hunk_inline<CR>", { desc = "Preview git hunk [I]nline" })

@@ -29,6 +29,7 @@ packages:
       - starship
       - talosctl
       - tmux
+      - tree-sitter-cli
       - zellij
       - zoxide
       - zsh

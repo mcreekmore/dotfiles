@@ -1,12 +1,8 @@
-return {
-	"nvim-tree/nvim-tree.lua",
-	version = "*",
-	lazy = false,
-	dependencies = {
-		"nvim-tree/nvim-web-devicons",
-	},
-	config = function()
-		require("nvim-tree").setup({})
-		vim.keymap.set("n", "<leader>tt", ":NvimTreeToggle<CR>", { desc = "[T]oggle File [T]ree" })
-	end,
-}
+-- File tree sidebar.
+vim.pack.add({
+	{ src = "https://github.com/nvim-tree/nvim-tree.lua" },
+	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
+})
+
+require("nvim-tree").setup({})
+vim.keymap.set("n", "<leader>tt", "<cmd>NvimTreeToggle<CR>", { desc = "[T]oggle File [T]ree" })
