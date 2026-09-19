@@ -1,6 +1,7 @@
-return {
-	"folke/todo-comments.nvim",
-	event = "VimEnter",
-	dependencies = { "nvim-lua/plenary.nvim" },
-	opts = { signs = false },
-}
+-- Highlight TODO/FIXME/etc comments.
+vim.pack.add({
+	{ src = "https://github.com/folke/todo-comments.nvim" },
+	{ src = "https://github.com/nvim-lua/plenary.nvim" },
+})
+
+require("todo-comments").setup({ signs = false })

@@ -1,0 +1,30 @@
+-- Every plugin lives in its own self-contained file under lua/plugins/: each
+-- file adds its own source(s) with vim.pack.add and configures itself.
+-- To add a plugin: create a file here and require it in the list below.
+-- Order matters only where one plugin's setup uses another (e.g. blink before lsp).
+
+require("plugins.which-key")
+require("plugins.theme")
+require("plugins.treesitter")
+require("plugins.treesitter-textobjects")
+require("plugins.mini")
+require("plugins.blink")
+require("plugins.lazydev")
+require("plugins.lsp")
+require("plugins.fidget")
+require("plugins.telescope")
+require("plugins.harpoon")
+require("plugins.oil")
+require("plugins.nvim-tree")
+require("plugins.gitsigns")
+require("plugins.diffview")
+require("plugins.lazygit")
+require("plugins.fugitive")
+require("plugins.conform")
+require("plugins.render-markdown")
+require("plugins.markdown-preview")
+require("plugins.todo-comments")
+require("plugins.undotree")
+require("plugins.dap")
+require("plugins.sleuth")
+require("plugins.tmux-navigator")
