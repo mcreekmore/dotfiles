@@ -13,6 +13,13 @@ Set-ExecutionPolicy unrestricted
 - [MSI Afterburner](https://www.msi.com/Landing/afterburner/graphics-cards)
 - [Jagex Launcher](https://www.runescape.com/launcher)
 
+## Game saves backup
+
+```powershell
+./Backup-AppDataLocal.ps1
+./Backup-AppDataLocal.ps1 -SourceDrive F: -Username someone
+```
+
 ## wsl
 
 ### Export current image

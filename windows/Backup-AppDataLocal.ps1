@@ -1,6 +1,11 @@
+param(
+    [string]$SourceDrive = "E:",
+    [string]$Username = "matt"
+)
+
 $ErrorActionPreference = "Stop"
 
-$oldRoot = "E:\Users\matt"
+$oldRoot = "$SourceDrive\Users\$Username"
 $stage   = "$env:TEMP\GameSavesStage"
 $destDir = "C:\Backups"
 $zip     = "$destDir\GameSaves.zip"
@@ -87,6 +92,7 @@ $roots = @(
     @{ Name = "Saved_Games"; Path = "$oldRoot\Saved Games"; Exclude = @() }
     @{ Name = "AppData_Local"; Path = "$oldRoot\AppData\Local"; Exclude = $localExclude }
     @{ Name = "AppData_Roaming"; Path = "$oldRoot\AppData\Roaming"; Exclude = $roamingExclude }
+    @{ Name = "Public_Documents_Steam"; Path = "$SourceDrive\Users\Public\Documents\Steam"; Exclude = @() }
 )
 
 if (Test-Path $log) {
