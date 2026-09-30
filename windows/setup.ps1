@@ -20,6 +20,22 @@ if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
 # Set timezone
 Set-TimeZone -Id "Eastern Standard Time"
 
+# Disable mouse acceleration ("Enhance pointer precision")
+Write-Host "`nDisabling mouse acceleration..." -ForegroundColor Cyan
+Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" -Name "MouseSpeed" -Value "0"
+Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" -Name "MouseThreshold1" -Value "0"
+Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" -Name "MouseThreshold2" -Value "0"
+Write-Host "[✓] Mouse acceleration disabled" -ForegroundColor Green
+
+# Disable audio ducking/attenuation (set communications activity to "Do nothing")
+Write-Host "`nDisabling audio attenuation..." -ForegroundColor Cyan
+$audioDuckingPath = "HKCU:\Software\Microsoft\Multimedia\Audio"
+if (-not (Test-Path $audioDuckingPath)) {
+    New-Item -Path $audioDuckingPath -Force | Out-Null
+}
+Set-ItemProperty -Path $audioDuckingPath -Name "UserDuckingPreference" -Value 3 -Type DWord
+Write-Host "[✓] Audio attenuation disabled" -ForegroundColor Green
+
 function Install-WingetPackage {
     param(
         [Parameter(Mandatory)] [string]$Id

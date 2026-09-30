@@ -22,7 +22,7 @@ else
   echo "Homebrew is already installed."
 fi
 
-which brew || { echo "Error: brew not in PATH"; exit 1; }
+command -v brew > /dev/null || { echo "Error: brew not in PATH"; exit 1; }
 
 packages="chezmoi bitwarden-cli"
 

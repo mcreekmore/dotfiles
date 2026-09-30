@@ -1,7 +1,11 @@
 packages:
-  apt:
-    - build-essential
-    - curl
+  linux:
+    apt:
+      - build-essential
+      - curl
+    pacman:
+      - base-devel
+      - curl
 
   homebrew:
     brews:
@@ -135,6 +139,8 @@ packages:
     - WireGuard.WireGuard
     - AntibodySoftware.WizTree
     - Nextcloud.NextcloudDesktop
+    - ElementLabs.LMStudio
+    - marlocarlo.psmux
   scoop:
     buckets:
       - extras

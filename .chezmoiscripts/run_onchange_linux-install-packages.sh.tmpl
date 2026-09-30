@@ -1,8 +1,17 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/bash
 
-sudo apt-get update
-sudo apt-get install -y {{ .packages.apt | join " " }}
+set -euo pipefail
+
+if command -v apt-get >/dev/null 2>&1; then
+  sudo apt-get update
+  sudo apt-get install -y {{ .packages.linux.apt | join " " }}
+elif command -v pacman >/dev/null 2>&1; then
+  sudo pacman -Syu --needed --noconfirm {{ .packages.linux.pacman | join " " }}
+else
+  echo "Unsupported Linux package manager" >&2
+  exit 1
+fi
 
 brew bundle --file=/dev/stdin <<EOF
 {{ range .packages.homebrew.brews -}}

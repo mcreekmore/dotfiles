@@ -16,8 +16,8 @@ Set-ExecutionPolicy unrestricted
 ## Game saves backup
 
 ```powershell
-./Backup-AppDataLocal.ps1
-./Backup-AppDataLocal.ps1 -SourceDrive F: -Username someone
+./Backup-AppDataLocal.ps1                                    # defaults: -SourceDrive E: -Username matt
+./Backup-AppDataLocal.ps1 -SourceDrive F: -Username someone   # different drive/user
 ```
 
 ## wsl

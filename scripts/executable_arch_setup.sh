@@ -1,15 +1,18 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 # update system
 sudo pacman -Syu
 
-# install yay
-tmp_dir = arch_setup_tmp_dir
-mkdir $tmp_dir
-cd $tmp_dir
-sudo pacman -S --needed base-devel git
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-cd ../../
-rm -rf $tmp_dir
+# install yay (AUR helper), if not already present
+if ! command -v yay >/dev/null 2>&1; then
+  sudo pacman -S --needed base-devel git
+
+  tmp_dir=$(mktemp -d)
+  git clone https://aur.archlinux.org/yay.git "$tmp_dir/yay"
+  (cd "$tmp_dir/yay" && makepkg -si)
+  rm -rf "$tmp_dir"
+else
+  echo "yay is already installed."
+fi

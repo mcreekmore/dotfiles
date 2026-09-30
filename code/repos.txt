@@ -2,3 +2,5 @@
 # One per line: <directory name> <clone url>
 arbiter git@github.com:mcreekmore/arbiter.git
 infrastructure git@github.com:mcreekmore/infrastructure.git
+unraid-templates git@github.com:mcreekmore/unraid-templates.git
+cross-seed-cleanup git@github.com:mcreekmore/cross-seed-cleanup.git
