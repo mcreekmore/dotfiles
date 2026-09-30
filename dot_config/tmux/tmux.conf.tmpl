@@ -1,5 +1,9 @@
 # set default shell
+{{- if eq .chezmoi.os "windows" }}
+set -g default-shell pwsh
+{{- else }}
 set -g default-shell /bin/zsh
+{{- end }}
 
 # set true color
 set-option -sa terminal-overrides ",xterm*:Tc"
@@ -15,7 +19,7 @@ set-option -g status-position top
 
 # reload config
 unbind r
-bind r source-file ~/.tmux/tmux.conf
+bind r source-file ~/.config/tmux/tmux.conf \; display-message "Config reloaded"
 
 # change prefix
 set -g prefix C-s
@@ -32,6 +36,24 @@ set-option -g renumber-windows on
 
 # extend session name max length
 set -g status-left-length 20
+{{- if eq .chezmoi.os "windows" }}
+
+### psmux plugin manager (ppm) — native PowerShell ports, no bash/WSL required
+# ppm itself is bootstrapped by setup.ps1 (Install-Ppm)
+set -g @plugin 'psmux-plugins/ppm'
+set -g @plugin 'psmux-plugins/psmux-sensible'
+set -g @plugin 'psmux-plugins/psmux-vim-navigator'
+set -g @plugin 'psmux-plugins/psmux-resurrect'
+set -g @resurrect-dir '~/.local/state/tmux/'
+
+# no native port yet of wfxr/tmux-fzf-url or niksingh710/minimal-tmux-status;
+# Windows Terminal already auto-linkifies URLs (ctrl+click opens them), and a
+# bundled theme stands in for minimal-tmux-status
+set -g @plugin 'psmux-plugins/psmux-theme-catppuccin'
+
+# Press Prefix + I to install/update the plugins above
+run '~/.psmux/plugins/ppm/ppm.ps1'
+{{- else }}
 
 # tpm plugin
 set -g @plugin 'tmux-plugins/tpm'
@@ -114,3 +136,4 @@ if "test ! -d ~/.config/tmux/plugins/tpm" \
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.config/tmux/plugins/tpm/tpm'
+{{- end }}

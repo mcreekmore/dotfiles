@@ -168,6 +168,29 @@ try {
     Write-Host "[X] Failed to initialize chezmoi: $($_.Exception.Message)" -ForegroundColor Red
 }
 
+# Bootstrap ppm (psmux's plugin manager, the tpm equivalent for tmux on Windows)
+Write-Host "`nBootstrapping ppm for psmux..." -ForegroundColor Cyan
+$ppmPath = Join-Path $env:USERPROFILE ".psmux\plugins\ppm"
+if (Test-Path $ppmPath) {
+    Write-Host "[✓] ppm is already installed" -ForegroundColor Green
+} elseif (-not (Get-Command git -ErrorAction SilentlyContinue)) {
+    Write-Host "[X] Git is not available, skipping ppm bootstrap" -ForegroundColor Red
+} else {
+    try {
+        $ppmTempDir = Join-Path $env:TEMP "psmux-plugins-tmp"
+        if (Test-Path $ppmTempDir) {
+            Remove-Item $ppmTempDir -Recurse -Force
+        }
+        git clone --depth 1 https://github.com/psmux/psmux-plugins.git $ppmTempDir
+        New-Item -ItemType Directory -Path (Split-Path $ppmPath -Parent) -Force | Out-Null
+        Copy-Item (Join-Path $ppmTempDir "ppm") $ppmPath -Recurse -Force
+        Remove-Item $ppmTempDir -Recurse -Force
+        Write-Host "[✓] Successfully bootstrapped ppm" -ForegroundColor Green
+    } catch {
+        Write-Host "[X] Failed to bootstrap ppm: $($_.Exception.Message)" -ForegroundColor Red
+    }
+}
+
 # chezmoi apply lands the windows/ folder at $env:USERPROFILE\windows
 $appliedWindowsDir = Join-Path $env:USERPROFILE "windows"
 
