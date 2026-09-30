@@ -22,7 +22,6 @@ packages:
       - neovim
       - node
       - nvm
-      - ollama
       - opencode
       - opentofu
       - pnpm
@@ -89,7 +88,6 @@ packages:
     - Mozilla.Firefox
     - Neovim.Neovim
     - Obsidian.Obsidian
-    - Ollama.Ollama
     - OpenJS.NodeJS
     - OpenWhisperSystems.Signal
     # - Overwolf.CurseForge # this version is too old
@@ -141,6 +139,8 @@ packages:
     - Nextcloud.NextcloudDesktop
     - ElementLabs.LMStudio
     - marlocarlo.psmux
+    - Guru3D.Afterburner
+    - Guru3D.RTSS
   scoop:
     buckets:
       - extras
