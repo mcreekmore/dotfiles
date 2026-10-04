@@ -63,7 +63,7 @@
     {
         "defaults": 
         {
-            "colorScheme": "Campbell",
+            "colorScheme": "Dark+",
             "font": 
             {
                 "face": "Hack Nerd Font Mono"
@@ -108,7 +108,7 @@
                 "useAcrylic": false
             },
             {
-                "colorScheme": "Catppuccin Mocha",
+                "colorScheme": "Dark+",
                 "elevate": false,
                 "font": 
                 {

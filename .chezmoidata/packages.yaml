@@ -131,7 +131,7 @@ packages:
     - sharkdp.bat
     - TeamViewer.TeamViewer
     - twpayne.chezmoi
-    # - Ubisoft.Connect
+    - Ubisoft.Connect
     - VideoLAN.VLC
     # - wez.wezterm
     - WireGuard.WireGuard
@@ -141,6 +141,8 @@ packages:
     - marlocarlo.psmux
     - Guru3D.Afterburner
     - Guru3D.RTSS
+    - Fastfetch-cli.Fastfetch
+    - JesseDuffield.lazygit
   scoop:
     buckets:
       - extras
