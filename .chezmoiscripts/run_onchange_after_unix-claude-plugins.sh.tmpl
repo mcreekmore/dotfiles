@@ -1,0 +1,17 @@
+{{ if ne .chezmoi.os "windows" -}}
+#!/bin/bash
+
+set -euo pipefail
+
+if ! command -v claude >/dev/null 2>&1; then
+  echo "claude not found, skipping plugin setup" >&2
+  exit 0
+fi
+
+{{ range .packages.claude.marketplaces -}}
+claude plugin marketplace add {{ . | quote }}
+{{ end -}}
+{{ range .packages.claude.plugins -}}
+claude plugin install {{ . | quote }}
+{{ end -}}
+{{ end -}}

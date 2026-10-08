@@ -149,3 +149,12 @@ packages:
       - nerd-fonts
     packages:
       - nerd-fonts/Hack-NF-Mono
+  claude:
+    marketplaces:
+      - anthropics/claude-plugins-official
+      - DietrichGebert/ponytail
+      - blader/humanizer
+    plugins:
+      - superpowers@claude-plugins-official
+      - ponytail@ponytail
+      - humanizer@humanizer

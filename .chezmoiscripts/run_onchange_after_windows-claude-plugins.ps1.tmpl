@@ -1,0 +1,13 @@
+{{ if eq .chezmoi.os "windows" -}}
+  $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")
+  if (-not (Get-Command claude -ErrorAction SilentlyContinue)) {
+    Write-Warning "claude not found, skipping plugin setup"
+    exit 0
+  }
+  {{ range .packages.claude.marketplaces -}}
+  claude plugin marketplace add {{ . | quote }}
+  {{ end -}}
+  {{ range .packages.claude.plugins -}}
+  claude plugin install {{ . | quote }}
+  {{ end -}}
+{{ end -}}
