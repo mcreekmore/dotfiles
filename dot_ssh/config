@@ -46,3 +46,7 @@ Host mint
     HostName 10.0.10.208
     User matt
     IdentityFile ~/.ssh/id_ed25519
+Host pangolin
+    HostName 40.160.39.24
+    User ubuntu
+    IdentityFile ~/.ssh/id_ed25519

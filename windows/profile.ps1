@@ -12,3 +12,5 @@ Set-Alias ls eza
 Set-Alias t tofu
 Set-Alias tms "$HOME/scripts/tmux-sessionizer.sh"
 Set-Alias wg winget
+Set-Alias wadd "$HOME/windows/wadd.ps1"
+Set-Alias wrm "$HOME/windows/wrm.ps1"
