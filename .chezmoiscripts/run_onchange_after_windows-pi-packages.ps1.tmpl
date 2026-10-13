@@ -1,0 +1,10 @@
+{{ if eq .chezmoi.os "windows" -}}
+  $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")
+  if (-not (Get-Command pi -ErrorAction SilentlyContinue)) {
+    Write-Warning "pi not found, skipping package setup"
+    exit 0
+  }
+  {{ range .packages.pi -}}
+  pi install {{ . | quote }}
+  {{ end -}}
+{{ end -}}

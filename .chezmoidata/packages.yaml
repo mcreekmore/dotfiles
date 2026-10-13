@@ -143,12 +143,16 @@ packages:
     - Guru3D.RTSS
     - Fastfetch-cli.Fastfetch
     - JesseDuffield.lazygit
+    - mtkennerly.ludusavi
+    - Klocman.BulkCrapUninstaller
   scoop:
     buckets:
       - extras
       - nerd-fonts
     packages:
       - nerd-fonts/Hack-NF-Mono
+  pi:
+    - npm:pi-local-models
   claude:
     marketplaces:
       - anthropics/claude-plugins-official
