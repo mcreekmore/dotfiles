@@ -151,8 +151,6 @@ packages:
       - nerd-fonts
     packages:
       - nerd-fonts/Hack-NF-Mono
-  pi:
-    - npm:pi-local-models
   claude:
     marketplaces:
       - anthropics/claude-plugins-official
